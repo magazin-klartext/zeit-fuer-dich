@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zeit für Dich · KLARTeXt</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@200;300;400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --blue:      #6a7fa3;
@@ -23,12 +23,11 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
-      font-family: 'Lato', sans-serif;
+      font-family: 'Raleway', sans-serif;
       font-weight: 300;
       color: var(--black);
       min-height: 100dvh;
@@ -37,7 +36,7 @@
     /* ── NAV ── */
     nav {
       background: var(--blue);
-      padding: 14px 28px;
+      padding: 16px 28px;
       display: flex;
       align-items: center;
       position: sticky;
@@ -46,7 +45,7 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     }
     .nav-logo-img {
-      height: 36px;
+      height: 52px;
       width: auto;
       display: block;
     }
@@ -68,46 +67,41 @@
       border-radius: 50%;
       pointer-events: none;
     }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -40px; left: -40px;
-      width: 160px; height: 160px;
-      background: rgba(184,146,74,0.10);
-      border-radius: 50%;
-      pointer-events: none;
-    }
     .hero-eyebrow {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
       font-size: 10px;
-      letter-spacing: 0.35em;
+      letter-spacing: 0.4em;
       text-transform: uppercase;
       color: var(--lavender);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
     .hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-weight: 400;
-      font-size: clamp(2.2rem, 6vw, 3rem);
+      font-weight: 300;
+      font-size: clamp(2.6rem, 7vw, 3.4rem);
       color: var(--lavender);
-      line-height: 1.2;
-      margin-bottom: 18px;
+      line-height: 1.15;
+      margin-bottom: 20px;
     }
     .hero-divider {
       width: 40px;
       height: 1px;
       background: var(--rose-mid);
-      margin: 0 auto 20px;
+      margin: 0 auto 22px;
     }
     .hero p {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
       font-size: 0.95rem;
-      line-height: 1.85;
+      line-height: 1.9;
       color: var(--gray);
       max-width: 340px;
       margin: 0 auto;
     }
 
-    /* ── PLAYER SECTION ── */
+    /* ── PLAYER ── */
     .player-section {
       background: var(--white);
       border-top: 3px solid var(--mint);
@@ -115,28 +109,25 @@
       width: calc(100% - 32px);
       margin: 0 auto;
       transform: translateY(-20px);
-      border-radius: 2px;
       box-shadow: 0 8px 32px rgba(106,127,163,0.12);
       padding: 32px 32px 28px;
     }
-
     .player-label {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
       font-size: 10px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--gray);
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       text-align: center;
     }
-
     audio { display: none; }
-
     .progress-wrap {
       height: 2px;
       background: var(--lightgray);
       cursor: pointer;
       margin-bottom: 10px;
-      position: relative;
     }
     .progress-fill {
       height: 100%;
@@ -148,12 +139,13 @@
     .time-row {
       display: flex;
       justify-content: space-between;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
       font-size: 11px;
       color: var(--gray);
       letter-spacing: 0.04em;
       margin-bottom: 24px;
     }
-
     .controls {
       display: flex;
       align-items: center;
@@ -172,8 +164,8 @@
     }
     .btn-skip:hover { color: var(--blue); }
     .btn-play {
-      width: 60px;
-      height: 60px;
+      width: 62px;
+      height: 62px;
       border-radius: 50%;
       background: var(--blue);
       border: none;
@@ -187,37 +179,86 @@
     .btn-play:hover { opacity: 0.88; transform: scale(1.05); }
     .btn-play svg { color: var(--white); }
 
-    /* ── ANLEITUNG / GUIDE ── */
+    /* ── PDF DOWNLOAD ── */
+    .pdf-section {
+      max-width: 480px;
+      width: calc(100% - 32px);
+      margin: 4px auto 0;
+    }
+    .pdf-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--white);
+      border: 1px solid var(--lightgray);
+      padding: 16px 20px;
+      text-decoration: none;
+      color: var(--black);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+    .pdf-btn:hover {
+      border-color: var(--rose-mid);
+      box-shadow: 0 2px 12px rgba(232,201,187,0.4);
+    }
+    .pdf-icon {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      background: var(--rose-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .pdf-text-wrap {}
+    .pdf-title {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 400;
+      font-size: 0.88rem;
+      color: var(--black);
+      margin-bottom: 2px;
+    }
+    .pdf-sub {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      font-size: 0.78rem;
+      color: var(--gray);
+      letter-spacing: 0.03em;
+    }
+    .pdf-arrow {
+      margin-left: auto;
+      color: var(--lightgray);
+      font-size: 1.1rem;
+    }
+
+    /* ── ANLEITUNG ── */
     .guide-section {
       max-width: 480px;
       width: calc(100% - 32px);
-      margin: 12px auto 0;
+      margin: 28px auto 0;
       padding-bottom: 48px;
     }
-
     .guide-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.3rem;
-      font-weight: 400;
+      font-weight: 300;
+      font-size: 1.5rem;
       color: var(--lavender);
       text-align: center;
       margin-bottom: 6px;
     }
     .guide-subtitle {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
       font-size: 10px;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--gray);
       text-align: center;
       margin-bottom: 28px;
       opacity: 0.7;
-    }
-
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
     }
 
     .step {
@@ -231,7 +272,7 @@
     .step:last-child { border-bottom: none; }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
+      from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     .step:nth-child(1) { animation-delay: 0.05s; }
@@ -255,19 +296,19 @@
       font-size: 17px;
       margin-top: 2px;
     }
-
-    .step-body {}
     .step-heading {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1rem;
-      font-weight: 400;
+      font-weight: 300;
+      font-size: 1.1rem;
       color: var(--black);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
     .step-text {
-      font-size: 0.88rem;
-      line-height: 1.75;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 0.87rem;
+      line-height: 1.8;
       color: var(--gray);
     }
     .step-text strong {
@@ -275,26 +316,26 @@
       color: var(--black);
     }
 
-    /* ── CLOSING CARD ── */
+    /* ── CLOSING ── */
     .closing {
       background: var(--rose);
       max-width: 480px;
       width: calc(100% - 32px);
       margin: 0 auto 48px;
-      padding: 28px 28px;
+      padding: 28px;
       text-align: center;
-      border-radius: 2px;
     }
     .closing p {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1rem;
+      font-weight: 300;
+      font-size: 1.05rem;
       color: var(--gray);
-      line-height: 1.75;
+      line-height: 1.8;
       margin-bottom: 8px;
     }
     .closing .heart {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: var(--rose-mid);
     }
 
@@ -303,8 +344,10 @@
       background: var(--blue);
       padding: 16px 24px;
       text-align: center;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
       font-size: 10px;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.55);
     }
@@ -312,12 +355,10 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <img src="Klartext-logo.png" alt="KLARTeXt – Das Magazin mit Haltung" class="nav-logo-img" />
   </nav>
 
-  <!-- HERO -->
   <div class="hero">
     <p class="hero-eyebrow">KLARTeXt · Das Magazin mit Haltung</p>
     <h1>Zeit für Dich</h1>
@@ -325,12 +366,9 @@
     <p>Manchmal braucht es nur einen ruhigen Moment,<br>um wieder bei sich selbst anzukommen.</p>
   </div>
 
-  <!-- AUDIO PLAYER -->
   <div class="player-section">
     <p class="player-label">Geführte Achtsamkeitsübung · 4 Min.</p>
-
     <audio id="audio" src="Zeit-fuer-dich_2026.m4a" preload="metadata"></audio>
-
     <div class="progress-wrap" id="progressWrap">
       <div class="progress-fill" id="progressFill"></div>
     </div>
@@ -338,7 +376,6 @@
       <span id="timeCurrent">0:00</span>
       <span id="timeDuration">–:––</span>
     </div>
-
     <div class="controls">
       <button class="btn-skip" id="btnBack" title="15 Sek. zurück">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -347,7 +384,6 @@
           <text x="7.5" y="17" font-size="5.5" font-family="sans-serif" fill="currentColor" stroke="none">15</text>
         </svg>
       </button>
-
       <button class="btn-play" id="btnPlay" title="Abspielen">
         <svg id="iconPlay" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
           <polygon points="5,3 19,12 5,21"/>
@@ -357,7 +393,6 @@
           <rect x="14" y="3" width="4" height="18" rx="1"/>
         </svg>
       </button>
-
       <button class="btn-skip" id="btnFwd" title="15 Sek. vor">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="23 4 23 10 17 10"/>
@@ -368,88 +403,93 @@
     </div>
   </div>
 
-  <!-- ANLEITUNG -->
+  <div class="pdf-section">
+    <a href="Zeit_fuer_Dich_Achtsamkeitsuebung.pdf" target="_blank" class="pdf-btn">
+      <div class="pdf-icon">📄</div>
+      <div class="pdf-text-wrap">
+        <p class="pdf-title">Übungsblatt herunterladen</p>
+        <p class="pdf-sub">Zeit für Dich – Achtsamkeitsübung als PDF</p>
+      </div>
+      <span class="pdf-arrow">↓</span>
+    </a>
+  </div>
+
   <div class="guide-section">
     <h2 class="guide-title">Eine kleine Pause zum Ankommen</h2>
     <p class="guide-subtitle">Schön, dass du gerade hier bist</p>
 
-    <div class="steps">
-
-      <div class="step">
-        <div class="step-icon">🫁</div>
-        <div class="step-body">
-          <p class="step-heading">Atme an.</p>
-          <p class="step-text">Atme einmal tief durch die Nase ein … und langsam wieder aus.<br><strong>Noch einmal.</strong><br>Einatmen … und mit dem Ausatmen ein kleines Stück Anspannung loslassen.</p>
-        </div>
+    <div class="step">
+      <div class="step-icon">🫁</div>
+      <div>
+        <p class="step-heading">Atme an.</p>
+        <p class="step-text">Atme einmal tief durch die Nase ein … und langsam wieder aus.<br><strong>Noch einmal.</strong><br>Einatmen … und mit dem Ausatmen ein kleines Stück Anspannung loslassen.</p>
       </div>
-
-      <div class="step">
-        <div class="step-icon">🤍</div>
-        <div class="step-body">
-          <p class="step-heading">Du darfst einfach da sein.</p>
-          <p class="step-text">Du musst gerade nichts leisten. Nichts erklären. Nichts perfekt machen.<br><strong>Du darfst einfach nur da sein.</strong></p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-icon">🧘</div>
-        <div class="step-body">
-          <p class="step-heading">Komme in deinen Körper.</p>
-          <p class="step-text">Spüre den Boden unter dir. Nimm wahr, wie dein Körper getragen wird. Vielleicht lockerst du deine Schultern ein wenig.<br><strong>Mit jedem Atemzug darf etwas mehr Ruhe entstehen.</strong></p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-icon">🌱</div>
-        <div class="step-body">
-          <p class="step-heading">Erinnere dich daran.</p>
-          <p class="step-text">Du musst nicht immer stark sein. Du darfst müde sein. Du darfst fühlen. Du darfst Pausen brauchen.<br><strong>Manchmal beginnt genau dort wieder die Verbindung zu uns selbst.</strong></p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-icon">💭</div>
-        <div class="step-body">
-          <p class="step-heading">Gedanken dürfen sein.</p>
-          <p class="step-text">Gedanken dürfen kommen. Und auch wieder weiterziehen.<br><strong>Du musst nichts festhalten.</strong></p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-icon">❓</div>
-        <div class="step-body">
-          <p class="step-heading">Wie geht es mir wirklich?</p>
-          <p class="step-text">Vielleicht fragst du dich jetzt ganz leise: <strong>Wie geht es mir eigentlich gerade wirklich?</strong><br>Nicht wie es „sein sollte". Nicht was erwartet wird. Sondern ehrlich.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-icon">💨</div>
-        <div class="step-body">
-          <p class="step-heading">Atme noch einmal.</p>
-          <p class="step-text">Atme noch einmal tief ein … und langsam wieder aus.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-icon">✨</div>
-        <div class="step-body">
-          <p class="step-heading">Komme langsam zurück.</p>
-          <p class="step-text">Nimm dieses Gefühl noch einen kleinen Moment mit.<br><strong>Ruhe. Atmung. Ankommen.</strong><br>Und wenn du soweit bist, öffne langsam wieder die Augen.</p>
-        </div>
-      </div>
-
     </div>
+
+    <div class="step">
+      <div class="step-icon">🤍</div>
+      <div>
+        <p class="step-heading">Du darfst einfach da sein.</p>
+        <p class="step-text">Du musst gerade nichts leisten. Nichts erklären. Nichts perfekt machen.<br><strong>Du darfst einfach nur da sein.</strong></p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-icon">🧘</div>
+      <div>
+        <p class="step-heading">Komme in deinen Körper.</p>
+        <p class="step-text">Spüre den Boden unter dir. Nimm wahr, wie dein Körper getragen wird. Vielleicht lockerst du deine Schultern ein wenig.<br><strong>Mit jedem Atemzug darf etwas mehr Ruhe entstehen.</strong></p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-icon">🌱</div>
+      <div>
+        <p class="step-heading">Erinnere dich daran.</p>
+        <p class="step-text">Du musst nicht immer stark sein. Du darfst müde sein. Du darfst fühlen. Du darfst Pausen brauchen.<br><strong>Manchmal beginnt genau dort wieder die Verbindung zu uns selbst.</strong></p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-icon">💭</div>
+      <div>
+        <p class="step-heading">Gedanken dürfen sein.</p>
+        <p class="step-text">Gedanken dürfen kommen. Und auch wieder weiterziehen.<br><strong>Du musst nichts festhalten.</strong></p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-icon">❓</div>
+      <div>
+        <p class="step-heading">Wie geht es mir wirklich?</p>
+        <p class="step-text">Vielleicht fragst du dich jetzt ganz leise: <strong>Wie geht es mir eigentlich gerade wirklich?</strong><br>Nicht wie es „sein sollte". Nicht was erwartet wird. Sondern ehrlich.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-icon">💨</div>
+      <div>
+        <p class="step-heading">Atme noch einmal.</p>
+        <p class="step-text">Atme noch einmal tief ein … und langsam wieder aus.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-icon">✨</div>
+      <div>
+        <p class="step-heading">Komme langsam zurück.</p>
+        <p class="step-text">Nimm dieses Gefühl noch einen kleinen Moment mit.<br><strong>Ruhe. Atmung. Ankommen.</strong><br>Und wenn du soweit bist, öffne langsam wieder die Augen.</p>
+      </div>
+    </div>
+
   </div>
 
-  <!-- CLOSING -->
   <div class="closing">
     <p>Schön, dass du dir diesen Moment<br>für dich genommen hast.</p>
     <p>Du bist wichtig. Genau so, wie du bist.</p>
     <div class="heart">♡</div>
   </div>
 
-  <!-- FOOTER -->
   <footer>© KLARTeXt · Alle Rechte vorbehalten</footer>
 
   <script>
@@ -466,7 +506,6 @@
       if (!isFinite(s)) return '–:––';
       return `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
     }
-
     audio.addEventListener('loadedmetadata', () => {
       timeDuration.textContent = fmt(audio.duration);
     });
