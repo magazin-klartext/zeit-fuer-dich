@@ -3,174 +3,162 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Achtsamkeit · KLARTEXt</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400&display=swap" rel="stylesheet" />
+  <title>Zeit für Dich · KLARTeXt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
   <style>
-    /* -------------------------------------------------------
-       FARBEN — entnommen aus den KLARTEXt-Screenshots:
-       - Stahlblau (Navigation)      → --blue
-       - Altrosa (Hintergrundblöcke) → --rose
-       - Hellmint (Türen-Bild)       → --mint (dezent als Akzent)
-       - Lavendel (Überschriften)    → --lavender
-       - Gold/Bronze (Logo-X)        → --gold
-       - Helles Grau (Seiten-BG)     → --bg
-    ------------------------------------------------------- */
     :root {
-      --blue:     #6a7fa3;   /* Navigationsleiste */
-      --rose:     #e8c9bb;   /* Altrosa Hintergrund */
-      --rose-bg:  #f5ede8;   /* helles Rosa für Seiten-BG */
-      --mint:     #a8cece;   /* Hellblau/Mint */
-      --lavender: #8a8ab0;   /* Lila Überschriften */
-      --gold:     #b8924a;   /* Logo-X Bronze */
-      --black:    #1a1a1a;
-      --gray:     #555555;
-      --lightgray:#e0e0e0;
-      --white:    #ffffff;
+      --blue:      #6a7fa3;
+      --blue-dark: #4e6080;
+      --rose:      #e8c9bb;
+      --rose-bg:   #f5ede8;
+      --rose-mid:  #ddb89f;
+      --mint:      #a8cece;
+      --lavender:  #8a8ab0;
+      --gold:      #b8924a;
+      --black:     #1a1a1a;
+      --gray:      #666666;
+      --lightgray: #d8d8d8;
+      --white:     #ffffff;
+      --bg:        #f2ede8;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html { scroll-behavior: smooth; }
+
     body {
-      min-height: 100dvh;
-      /* Sanfter Gradient aus Altrosa → Hellmint wie auf der Website */
-      background: linear-gradient(160deg, var(--rose-bg) 0%, #eaf3f3 100%);
-      font-family: 'Source Sans 3', sans-serif;
+      background: var(--bg);
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
       color: var(--black);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
+      min-height: 100dvh;
     }
 
-    /* -------------------------------------------------------
-       NAVIGATIONSLEISTE — wie auf der KLARTEXt-Website:
-       Stahlblau, weißer Text, Logo links
-    ------------------------------------------------------- */
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+    /* ── NAV ── */
+    nav {
       background: var(--blue);
-      padding: 14px 24px;
+      padding: 14px 28px;
       display: flex;
       align-items: center;
-      z-index: 10;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: 0.05em;
-    }
-    .nav-logo span {
-      color: var(--gold); /* Das X in Gold */
-    }
-    .nav-sub {
-      font-size: 8px;
-      font-weight: 300;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      margin-left: 2px;
+    .nav-logo-img {
+      height: 36px;
+      width: auto;
+      display: block;
     }
 
-    /* -------------------------------------------------------
-       HAUPTINHALT — mit Abstand zur fixierten Nav
-    ------------------------------------------------------- */
-    .content {
-      margin-top: 56px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* -------------------------------------------------------
-       HERO-BEREICH
-       Altrosa Hintergrundblock — wie die farbigen Sektionen
-       auf der KLARTEXt-Website
-    ------------------------------------------------------- */
+    /* ── HERO ── */
     .hero {
-      width: 100%;
       background: var(--rose);
-      padding: 48px 24px 40px;
+      padding: 56px 24px 48px;
       text-align: center;
-      margin-bottom: 0;
+      position: relative;
+      overflow: hidden;
     }
-    .hero-rubric {
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 160px; height: 160px;
+      background: rgba(184,146,74,0.10);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-eyebrow {
       font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--lavender);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 2.4rem;
       font-weight: 400;
-      color: var(--lavender);  /* Lavendel wie die Hero-Überschriften */
+      font-size: clamp(2.2rem, 6vw, 3rem);
+      color: var(--lavender);
       line-height: 1.2;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
-    .hero .intro {
+    .hero-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--rose-mid);
+      margin: 0 auto 20px;
+    }
+    .hero p {
       font-size: 0.95rem;
-      font-weight: 300;
-      line-height: 1.75;
+      line-height: 1.85;
       color: var(--gray);
-      max-width: 360px;
+      max-width: 340px;
       margin: 0 auto;
     }
 
-    /* -------------------------------------------------------
-       PLAYER-CARD
-       Weiß auf hellem Hintergrund — sauber abgesetzt
-    ------------------------------------------------------- */
-    .card {
+    /* ── PLAYER SECTION ── */
+    .player-section {
       background: var(--white);
-      border-top: 3px solid var(--mint); /* Mint-Akzent oben */
-      padding: 36px 36px 32px;
-      max-width: 420px;
-      width: 100%;
-      box-shadow: 0 4px 24px rgba(106,127,163,0.10);
+      border-top: 3px solid var(--mint);
+      max-width: 480px;
+      width: calc(100% - 32px);
+      margin: 0 auto;
+      transform: translateY(-20px);
+      border-radius: 2px;
+      box-shadow: 0 8px 32px rgba(106,127,163,0.12);
+      padding: 32px 32px 28px;
+    }
+
+    .player-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     audio { display: none; }
 
-    /* Fortschrittsbalken in Stahlblau */
     .progress-wrap {
       height: 2px;
       background: var(--lightgray);
-      margin: 0 0 10px;
       cursor: pointer;
+      margin-bottom: 10px;
       position: relative;
     }
     .progress-fill {
       height: 100%;
       background: linear-gradient(90deg, var(--blue), var(--mint));
       width: 0%;
-      transition: width 0.4s linear;
+      transition: width 0.3s linear;
       pointer-events: none;
     }
     .time-row {
       display: flex;
       justify-content: space-between;
       font-size: 11px;
-      font-weight: 300;
       color: var(--gray);
-      letter-spacing: 0.05em;
-      margin-bottom: 28px;
+      letter-spacing: 0.04em;
+      margin-bottom: 24px;
     }
 
-    /* Steuerelemente */
     .controls {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 24px;
-      padding-top: 8px;
+      gap: 28px;
     }
     .btn-skip {
       background: none;
@@ -183,11 +171,9 @@
       align-items: center;
     }
     .btn-skip:hover { color: var(--blue); }
-
-    /* Play-Button: Stahlblau wie die Website-Buttons */
     .btn-play {
-      width: 58px;
-      height: 58px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       background: var(--blue);
       border: none;
@@ -196,117 +182,275 @@
       align-items: center;
       justify-content: center;
       transition: opacity 0.2s, transform 0.15s;
-      box-shadow: 0 2px 12px rgba(106,127,163,0.25);
+      box-shadow: 0 4px 16px rgba(106,127,163,0.30);
     }
-    .btn-play:hover { opacity: 0.85; transform: scale(1.04); }
+    .btn-play:hover { opacity: 0.88; transform: scale(1.05); }
     .btn-play svg { color: var(--white); }
 
-    /* -------------------------------------------------------
-       FOOTER — wie auf der KLARTEXt-Website
-    ------------------------------------------------------- */
-    .footer {
-      margin-top: 32px;
+    /* ── ANLEITUNG / GUIDE ── */
+    .guide-section {
+      max-width: 480px;
+      width: calc(100% - 32px);
+      margin: 12px auto 0;
+      padding-bottom: 48px;
+    }
+
+    .guide-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--lavender);
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .guide-subtitle {
       font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--gray);
       text-align: center;
-      opacity: 0.6;
+      margin-bottom: 28px;
+      opacity: 0.7;
     }
 
-    /* Hinweis (verschwindet sobald Audio geladen) */
-    .hint {
-      margin-top: 24px;
-      padding: 12px 16px;
-      border: 1px dashed var(--lightgray);
-      font-size: 12px;
-      font-weight: 300;
-      color: var(--gray);
-      line-height: 1.6;
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
-    .hint code {
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(216,216,216,0.5);
+      animation: fadeUp 0.5s ease both;
+    }
+    .step:last-child { border-bottom: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .step:nth-child(1) { animation-delay: 0.05s; }
+    .step:nth-child(2) { animation-delay: 0.10s; }
+    .step:nth-child(3) { animation-delay: 0.15s; }
+    .step:nth-child(4) { animation-delay: 0.20s; }
+    .step:nth-child(5) { animation-delay: 0.25s; }
+    .step:nth-child(6) { animation-delay: 0.30s; }
+    .step:nth-child(7) { animation-delay: 0.35s; }
+    .step:nth-child(8) { animation-delay: 0.40s; }
+
+    .step-icon {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      border-radius: 50%;
       background: var(--rose-bg);
-      padding: 1px 5px;
-      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      margin-top: 2px;
+    }
+
+    .step-body {}
+    .step-heading {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+    .step-text {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: var(--gray);
+    }
+    .step-text strong {
+      font-weight: 400;
+      color: var(--black);
+    }
+
+    /* ── CLOSING CARD ── */
+    .closing {
+      background: var(--rose);
+      max-width: 480px;
+      width: calc(100% - 32px);
+      margin: 0 auto 48px;
+      padding: 28px 28px;
+      text-align: center;
+      border-radius: 2px;
+    }
+    .closing p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 8px;
+    }
+    .closing .heart {
+      font-size: 1.2rem;
+      color: var(--rose-mid);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--blue);
+      padding: 16px 24px;
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATIONSLEISTE (Stahlblau wie KLARTEXt) -->
-  <nav class="nav">
-    <div>
-      <div class="nav-logo">KLAR Te<span>X</span>t.</div>
-      <div class="nav-sub">Das Magazin mit Haltung</div>
-    </div>
+  <!-- NAV -->
+  <nav>
+    <img src="Klartext-logo.png" alt="KLARTeXt – Das Magazin mit Haltung" class="nav-logo-img" />
   </nav>
 
-  <div class="content">
-
-    <!-- HERO: Altrosa Sektion mit Lavendel-Titel -->
-    <div class="hero">
-      <p class="hero-rubric">Geführte Übung</p>
-      <h1>Achtsamkeit</h1>
-      <!-- Einleitungstext → hier anpassen -->
-      <p class="intro">
-        Nimm dir fünf Minuten nur für dich.<br>
-        Diese Übung lädt dich ein, innezuhalten und
-        bewusst in den gegenwärtigen Moment zu kommen.
-      </p>
-    </div>
-
-    <!-- PLAYER-CARD -->
-    <div class="card">
-
-      <audio id="audio" src="audio.mp3" preload="metadata"></audio>
-
-      <div class="progress-wrap" id="progressWrap">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
-      <div class="time-row">
-        <span id="timeCurrent">0:00</span>
-        <span id="timeDuration">–:––</span>
-      </div>
-
-      <div class="controls">
-        <button class="btn-skip" id="btnBack" title="15 Sek. zurück">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="1 4 1 10 7 10"/>
-            <path d="M3.51 15a9 9 0 1 0 .49-3.96"/>
-            <text x="7.5" y="17" font-size="5.5" font-family="sans-serif" fill="currentColor" stroke="none">15</text>
-          </svg>
-        </button>
-
-        <button class="btn-play" id="btnPlay" title="Abspielen">
-          <svg id="iconPlay" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <polygon points="5,3 19,12 5,21"/>
-          </svg>
-          <svg id="iconPause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none">
-            <rect x="6" y="3" width="4" height="18" rx="1"/>
-            <rect x="14" y="3" width="4" height="18" rx="1"/>
-          </svg>
-        </button>
-
-        <button class="btn-skip" id="btnFwd" title="15 Sek. vor">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="23 4 23 10 17 10"/>
-            <path d="M20.49 15a9 9 0 1 1-.49-3.96"/>
-            <text x="7.5" y="17" font-size="5.5" font-family="sans-serif" fill="currentColor" stroke="none">15</text>
-          </svg>
-        </button>
-      </div>
-
-      <div class="hint" id="hint">
-        <strong>Hinweis:</strong> Audiodatei <code>audio.mp3</code> im gleichen Ordner ablegen —
-        der Player funktioniert dann automatisch. Bei M4A: <code>audio.m4a</code> im Code ändern.
-      </div>
-
-    </div>
-
-    <p class="footer">© KLARTEXt · Alle Rechte vorbehalten</p>
-
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">KLARTeXt · Das Magazin mit Haltung</p>
+    <h1>Zeit für Dich</h1>
+    <div class="hero-divider"></div>
+    <p>Manchmal braucht es nur einen ruhigen Moment,<br>um wieder bei sich selbst anzukommen.</p>
   </div>
+
+  <!-- AUDIO PLAYER -->
+  <div class="player-section">
+    <p class="player-label">Geführte Achtsamkeitsübung · 4 Min.</p>
+
+    <audio id="audio" src="Zeit-fuer-dich_2026.m4a" preload="metadata"></audio>
+
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="time-row">
+      <span id="timeCurrent">0:00</span>
+      <span id="timeDuration">–:––</span>
+    </div>
+
+    <div class="controls">
+      <button class="btn-skip" id="btnBack" title="15 Sek. zurück">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="1 4 1 10 7 10"/>
+          <path d="M3.51 15a9 9 0 1 0 .49-3.96"/>
+          <text x="7.5" y="17" font-size="5.5" font-family="sans-serif" fill="currentColor" stroke="none">15</text>
+        </svg>
+      </button>
+
+      <button class="btn-play" id="btnPlay" title="Abspielen">
+        <svg id="iconPlay" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="5,3 19,12 5,21"/>
+        </svg>
+        <svg id="iconPause" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+          <rect x="6" y="3" width="4" height="18" rx="1"/>
+          <rect x="14" y="3" width="4" height="18" rx="1"/>
+        </svg>
+      </button>
+
+      <button class="btn-skip" id="btnFwd" title="15 Sek. vor">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 4 23 10 17 10"/>
+          <path d="M20.49 15a9 9 0 1 1-.49-3.96"/>
+          <text x="7.5" y="17" font-size="5.5" font-family="sans-serif" fill="currentColor" stroke="none">15</text>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ANLEITUNG -->
+  <div class="guide-section">
+    <h2 class="guide-title">Eine kleine Pause zum Ankommen</h2>
+    <p class="guide-subtitle">Schön, dass du gerade hier bist</p>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-icon">🫁</div>
+        <div class="step-body">
+          <p class="step-heading">Atme an.</p>
+          <p class="step-text">Atme einmal tief durch die Nase ein … und langsam wieder aus.<br><strong>Noch einmal.</strong><br>Einatmen … und mit dem Ausatmen ein kleines Stück Anspannung loslassen.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon">🤍</div>
+        <div class="step-body">
+          <p class="step-heading">Du darfst einfach da sein.</p>
+          <p class="step-text">Du musst gerade nichts leisten. Nichts erklären. Nichts perfekt machen.<br><strong>Du darfst einfach nur da sein.</strong></p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon">🧘</div>
+        <div class="step-body">
+          <p class="step-heading">Komme in deinen Körper.</p>
+          <p class="step-text">Spüre den Boden unter dir. Nimm wahr, wie dein Körper getragen wird. Vielleicht lockerst du deine Schultern ein wenig.<br><strong>Mit jedem Atemzug darf etwas mehr Ruhe entstehen.</strong></p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon">🌱</div>
+        <div class="step-body">
+          <p class="step-heading">Erinnere dich daran.</p>
+          <p class="step-text">Du musst nicht immer stark sein. Du darfst müde sein. Du darfst fühlen. Du darfst Pausen brauchen.<br><strong>Manchmal beginnt genau dort wieder die Verbindung zu uns selbst.</strong></p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon">💭</div>
+        <div class="step-body">
+          <p class="step-heading">Gedanken dürfen sein.</p>
+          <p class="step-text">Gedanken dürfen kommen. Und auch wieder weiterziehen.<br><strong>Du musst nichts festhalten.</strong></p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon">❓</div>
+        <div class="step-body">
+          <p class="step-heading">Wie geht es mir wirklich?</p>
+          <p class="step-text">Vielleicht fragst du dich jetzt ganz leise: <strong>Wie geht es mir eigentlich gerade wirklich?</strong><br>Nicht wie es „sein sollte". Nicht was erwartet wird. Sondern ehrlich.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon">💨</div>
+        <div class="step-body">
+          <p class="step-heading">Atme noch einmal.</p>
+          <p class="step-text">Atme noch einmal tief ein … und langsam wieder aus.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon">✨</div>
+        <div class="step-body">
+          <p class="step-heading">Komme langsam zurück.</p>
+          <p class="step-text">Nimm dieses Gefühl noch einen kleinen Moment mit.<br><strong>Ruhe. Atmung. Ankommen.</strong><br>Und wenn du soweit bist, öffne langsam wieder die Augen.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <p>Schön, dass du dir diesen Moment<br>für dich genommen hast.</p>
+    <p>Du bist wichtig. Genau so, wie du bist.</p>
+    <div class="heart">♡</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>© KLARTeXt · Alle Rechte vorbehalten</footer>
 
   <script>
     const audio        = document.getElementById('audio');
@@ -317,15 +461,14 @@
     const progressWrap = document.getElementById('progressWrap');
     const timeCurrent  = document.getElementById('timeCurrent');
     const timeDuration = document.getElementById('timeDuration');
-    const hint         = document.getElementById('hint');
 
     function fmt(s) {
       if (!isFinite(s)) return '–:––';
       return `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
     }
+
     audio.addEventListener('loadedmetadata', () => {
       timeDuration.textContent = fmt(audio.duration);
-      hint.style.display = 'none';
     });
     audio.addEventListener('timeupdate', () => {
       const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
@@ -359,5 +502,6 @@
       audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
     });
   </script>
+
 </body>
 </html>
