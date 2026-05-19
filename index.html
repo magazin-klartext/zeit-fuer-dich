@@ -375,47 +375,57 @@
     drop-shadow(0 1px 1px rgba(0,0,0,0.08));
 }l
  
-    /* ───────────────── PDF ───────────────── */
+  
 
-    .pdf-section {
+/* ───────────────── CARD WIDTH ───────────────── */
 
-      max-width: 500px;
-      width: calc(100% - 32px);
+.card-width {
 
-      margin: 4px auto 0;
-    }
+  max-width: 500px;
+  width: calc(100% - 32px);
 
-    .pdf-btn {
+  margin-left: auto;
+  margin-right: auto;
+}
 
-      display: flex;
-      align-items: center;
-      gap: 16px;
+/* ───────────────── PDF ───────────────── */
 
-      width: 100%;
+.pdf-section {
 
-      padding: 18px 22px;
+  margin-top: 4px;
+}
 
-      text-decoration: none;
+.pdf-btn {
 
-      color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 16px;
 
-      border-radius: 22px;
+  width: 100%;
 
-      background: rgba(255,255,255,0.78);
+  padding: 18px 22px;
 
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+  text-decoration: none;
 
-      border: 1px solid rgba(255,255,255,0.45);
+  color: var(--black);
 
-      box-shadow:
-        0 8px 24px rgba(106,127,163,0.08);
+  border-radius: 22px;
 
-      transition:
-        transform 0.22s ease,
-        border-color 0.22s ease,
-        box-shadow 0.22s ease;
-    }
+  background: rgba(255,255,255,0.78);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.45);
+
+  box-shadow:
+    0 8px 24px rgba(106,127,163,0.08);
+
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
 
     .pdf-btn:hover {
 
@@ -734,7 +744,7 @@
 
   <!-- PLAYER -->
 
-  <section class="player-section">
+  <section class="player-section card-width">
 
     <p class="player-label">
       Geführte Achtsamkeitsübung · 4 Min.
@@ -862,7 +872,7 @@
 
   <!-- PDF -->
 
-  <section class="pdf-section">
+  <section class="pdf-section card-width">
 
     <a
       href="Zeit_fuer_Dich_Achtsamkeitsuebung.pdf"
