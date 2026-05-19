@@ -19,12 +19,12 @@
 
       --mint:      #a8cece;
 
-      --lavender:  #8a8ab0;
+      --lavender:  #7278b4;
 
       --gold:      #b8924a;
 
       --black:     #1a1a1a;
-      --gray:      #5d6470;
+      --gray:      #505763;
       --lightgray: #d8d8d8;
 
       --white:     #ffffff;
@@ -153,9 +153,9 @@
 
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-weight: 300;
+      font-weight: 400;
 
-      font-size: clamp(2.8rem, 7vw, 3.6rem);
+      font-size: clamp(3.2rem, 8vw, 4.3rem);
 
       line-height: 1.08;
 
@@ -224,15 +224,15 @@
       top: 0;
       left: 28px;
 
-      width: 80px;
-      height: 2px;
+      width: 110px;
+      height: 4px;
 
       border-radius: 999px;
 
       background:
         linear-gradient(
           90deg,
-          var(--mint),
+          var(--lavender),
           var(--blue)
         );
     }
@@ -360,8 +360,8 @@
       background:
         linear-gradient(
           145deg,
-          #7b8fb3,
-          #5f7397
+          #7d82bf,
+          #5c6f99
         );
 
       box-shadow:
@@ -385,10 +385,9 @@
         inset 0 1px 1px rgba(255,255,255,0.25);
     }
 
-    .btn-play svg {
-      color: var(--white);
-    }
-
+   .btn-play svg {
+      transform: scale(1.05);
+}
     /* ───────────────── PDF ───────────────── */
 
     .pdf-section {
@@ -415,7 +414,7 @@
 
       border-radius: 22px;
 
-      background: rgba(255,255,255,0.60);
+      background: rgba(255,255,255,0.78);
 
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -495,6 +494,7 @@
       max-width: 500px;
       width: calc(100% - 32px);
 
+      margin-top: 46px;
       margin: 34px auto 0;
 
       padding-bottom: 48px;
@@ -508,9 +508,9 @@
 
       text-align: center;
 
-      font-size: 1.8rem;
+      font-size: 2.2rem;
 
-      color: var(--lavender);
+      color: var(--blue-dark);
 
       margin-bottom: 6px;
     }
@@ -592,13 +592,13 @@
 
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-weight: 300;
+      font-weight: 400;
 
       font-size: 1.18rem;
 
       margin-bottom: 7px;
 
-      color: var(--black);
+      color: var(--blue-dark);
     }
 
     .step-text {
@@ -624,6 +624,7 @@
       max-width: 500px;
       width: calc(100% - 32px);
 
+      margin-top: 12px;
       margin: 0 auto 54px;
 
       padding: 34px 30px;
