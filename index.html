@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>KLARTeXt. – Zeit für dich</title>
+  <title>KLARTeXt. · Zeit für dich</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,9 +38,12 @@
       min-height:100vh;
       overflow-x:hidden;
       position:relative;
-    }
 
-    /* Papierstruktur */
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+
+      padding-bottom: env(safe-area-inset-bottom);
+    }
 
     body::before{
       content:"";
@@ -56,8 +59,6 @@
       pointer-events:none;
     }
 
-    /* NAV */
-
     nav{
       position:sticky;
       top:0;
@@ -70,7 +71,7 @@
 
       border-bottom:1px solid rgba(0,0,0,.05);
 
-      padding:14px 22px;
+      padding:calc(14px + env(safe-area-inset-top)) 22px;
     }
 
     .nav-inner{
@@ -88,14 +89,10 @@
       object-fit:contain;
     }
 
-    /* WRAPPER */
-
     .wrapper{
       width:100%;
-
       display:flex;
       justify-content:center;
-
       padding:50px 20px 80px;
     }
 
@@ -104,7 +101,6 @@
       max-width:560px;
 
       background:var(--paper);
-
       border-radius:28px;
 
       padding:42px 34px;
@@ -115,36 +111,26 @@
       box-shadow:var(--shadow);
     }
 
-    /* Magazin-Flächen */
-
     .card::before{
       content:"";
-
       position:absolute;
       top:-70px;
       right:-70px;
-
       width:220px;
       height:220px;
-
       background:var(--green);
-
       border-radius:50%;
       opacity:.28;
     }
 
     .card::after{
       content:"";
-
       position:absolute;
       bottom:-100px;
       left:-100px;
-
       width:260px;
       height:260px;
-
       background:var(--blue);
-
       border-radius:50%;
       opacity:.35;
     }
@@ -153,54 +139,40 @@
       position:absolute;
       top:24px;
       left:26px;
-
       width:90px;
       height:14px;
-
       background:#111;
-
       opacity:.08;
-
       border-radius:30px;
-
       transform:rotate(-4deg);
     }
-
-    /* LABEL */
 
     .label{
       position:relative;
       z-index:2;
 
       display:inline-block;
-
-      background:#111;
+      background:#0f0f0f;
       color:#fff;
 
       padding:6px 12px;
-
       border-radius:4px;
 
       font-size:.72rem;
-      letter-spacing:.08em;
+      letter-spacing:.12em;
 
       margin-bottom:22px;
-
-      text-transform:none;
     }
-
-    /* HEADLINE */
 
     h1{
       position:relative;
       z-index:2;
 
       font-family:'Oswald',sans-serif;
-
       text-transform:uppercase;
 
-      font-size:3.1rem;
-      line-height:.95;
+      font-size:clamp(2rem, 6vw, 3.1rem);
+      line-height:1.05;
 
       margin-bottom:22px;
     }
@@ -209,17 +181,13 @@
       color:var(--green-dark);
     }
 
-    /* TEXT */
-
     .intro{
       position:relative;
       z-index:2;
 
       color:#555;
-
       line-height:1.8;
       font-size:1rem;
-
       margin-bottom:30px;
     }
 
@@ -228,26 +196,23 @@
       z-index:2;
 
       border-left:4px solid var(--green-dark);
+      background:rgba(169,191,122,.08);
 
-      padding-left:18px;
+      padding:14px 18px;
+      border-radius:10px;
 
       color:#444;
-
       line-height:1.7;
-
       font-style:italic;
 
       margin-bottom:34px;
     }
-
-    /* PLAYER */
 
     .player{
       position:relative;
       z-index:2;
 
       background:#f5f5f1;
-
       border-radius:22px;
 
       padding:24px;
@@ -267,61 +232,50 @@
 
     .progress-wrap{
       width:100%;
-      height:7px;
+      height:10px;
 
       border-radius:999px;
-
       background:rgba(0,0,0,.08);
 
       overflow:hidden;
       cursor:pointer;
 
       margin-bottom:12px;
+      padding:6px 0;
     }
 
     .progress-fill{
       width:0%;
       height:100%;
 
-      background:linear-gradient(
-        90deg,
-        var(--green-dark),
-        #7fa0c2
-      );
-
+      background:linear-gradient(90deg,var(--green-dark),#7fa0c2);
       border-radius:inherit;
     }
 
     .time-row{
       display:flex;
       justify-content:space-between;
-
       font-size:.8rem;
       color:#777;
-
       margin-bottom:24px;
     }
-
-    /* CONTROLS */
 
     .controls{
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:28px;
+      gap:22px;
     }
 
     .btn-skip{
       border:none;
       background:none;
-
       cursor:pointer;
 
       color:#888;
+      font-size:1rem;
 
       transition:.2s ease;
-
-      font-size:1rem;
     }
 
     .btn-skip:hover{
@@ -330,8 +284,8 @@
     }
 
     .btn-play{
-      width:74px;
-      height:74px;
+      width:70px;
+      height:70px;
 
       border-radius:50%;
       border:none;
@@ -342,34 +296,18 @@
 
       cursor:pointer;
 
-      background:linear-gradient(
-        145deg,
-        var(--green-dark),
-        #79995a
-      );
+      background:linear-gradient(145deg,var(--green-dark),#79995a);
 
-      box-shadow:
-        0 10px 22px rgba(0,0,0,.14),
-        inset 0 1px 1px rgba(255,255,255,.25);
-
-      transition:.25s ease;
-    }
-
-    .btn-play:hover{
-      transform:translateY(-2px) scale(1.04);
+      box-shadow:0 10px 22px rgba(0,0,0,.14), inset 0 1px 1px rgba(255,255,255,.25);
     }
 
     .btn-play svg{
       fill:white;
-      color:white;
     }
-
-    /* PDF */
 
     .pdf-section{
       position:relative;
       z-index:2;
-
       margin-top:26px;
     }
 
@@ -384,7 +322,6 @@
       background:#f7f5f1;
 
       border:1px solid rgba(0,0,0,.05);
-
       padding:18px 20px;
 
       border-radius:20px;
@@ -394,7 +331,6 @@
 
     .pdf-btn:hover{
       transform:translateY(-2px);
-
       box-shadow:0 10px 24px rgba(0,0,0,.06);
     }
 
@@ -403,13 +339,11 @@
       height:42px;
 
       border-radius:50%;
-
       background:rgba(169,191,122,.18);
 
       display:flex;
       align-items:center;
       justify-content:center;
-
       flex-shrink:0;
     }
 
@@ -429,14 +363,11 @@
       font-size:1.1rem;
     }
 
-    /* FOOTER */
-
     .footer{
       position:relative;
       z-index:2;
 
       margin-top:30px;
-
       text-align:center;
 
       color:#777;
@@ -452,27 +383,34 @@
       opacity:.7;
     }
 
-    /* MOBILE */
-
     @media(max-width:600px){
 
-      .card{
-        padding:34px 24px;
+      .wrapper{
+        padding:28px 14px 60px;
       }
 
-      h1{
-        font-size:2.45rem;
+      .card{
+        padding:28px 18px;
+        border-radius:22px;
       }
 
       .intro{
         font-size:.95rem;
       }
 
-      .btn-play{
-        width:68px;
-        height:68px;
+      .quote{
+        font-size:.95rem;
+        padding:12px 14px;
       }
 
+      .controls{
+        gap:18px;
+      }
+
+      .btn-play{
+        width:64px;
+        height:64px;
+      }
     }
 
   </style>
@@ -480,336 +418,146 @@
 
 <body>
 
-  <!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <img src="Klartext-logo.png" class="nav-logo" />
+  </div>
+</nav>
 
-  <nav>
+<div class="wrapper">
 
-    <div class="nav-inner">
+  <div class="card">
 
-      <img
-        src="Klartext-logo.png"
-        alt="KLARTExT. Logo"
-        class="nav-logo"
-      />
+    <div class="brush"></div>
+
+    <div class="label">KLARTeXt. · Audio Experience</div>
+
+    <h1>Zeit für<br><span class="accent">Dich</span></h1>
+
+    <p class="intro">
+      Willkommen zu deiner kleinen Pause.
+      Manchmal braucht es nur einen ruhigen Moment,
+      um wieder bei sich selbst anzukommen.
+    </p>
+
+    <div class="quote">
+      „Du musst nicht immer stark sein.“
+    </div>
+
+    <div class="player">
+
+      <div class="player-title">🎧 Geführte Achtsamkeitsübung</div>
+
+      <audio id="audio" src="Zeit-fuer-dich_2026.m4a"></audio>
+
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <div class="time-row">
+        <span id="timeCurrent">0:00</span>
+        <span id="timeDuration">–:––</span>
+      </div>
+
+      <div class="controls">
+
+        <button class="btn-skip" id="btnBack">↺ 15s</button>
+
+        <button class="btn-play" id="btnPlay">
+          <svg id="iconPlay" width="24" height="24" viewBox="0 0 24 24">
+            <polygon points="5,3 19,12 5,21"/>
+          </svg>
+
+          <svg id="iconPause" width="24" height="24" viewBox="0 0 24 24" style="display:none">
+            <rect x="6" y="3" width="4" height="18"/>
+            <rect x="14" y="3" width="4" height="18"/>
+          </svg>
+        </button>
+
+        <button class="btn-skip" id="btnFwd">↻ 15s</button>
+
+      </div>
 
     </div>
 
-  </nav>
+    <div class="pdf-section">
 
-  <!-- CONTENT -->
+      <a class="pdf-btn" href="Zeit_fuer_Dich_Achtsamkeitsuebung.pdf" target="_blank">
 
-  <div class="wrapper">
+        <div class="pdf-icon">📄</div>
 
-    <div class="card">
-
-      <div class="brush"></div>
-
-      <!-- LABEL -->
-
-      <div class="label">
-        KLARTeXt. · Audio Experience
-      </div>
-
-      <!-- HEADLINE -->
-
-      <h1>
-        Zeit für<br>
-        <span class="accent">Dich</span>
-      </h1>
-
-      <!-- INTRO -->
-
-      <p class="intro">
-        Willkommen zu deiner kleinen Pause.
-        Manchmal braucht es nur einen ruhigen Moment,
-        um wieder bei sich selbst anzukommen.
-      </p>
-
-      <!-- QUOTE -->
-
-      <div class="quote">
-        „Erinnere dich daran: 
-        Du musst nicht immer stark sein.“
-      </div>
-
-      <!-- PLAYER -->
-
-      <div class="player">
-
-        <div class="player-title">
-          🎧 Geführte Achtsamkeitsübung
+        <div>
+          <div class="pdf-title">Übungsblatt</div>
+          <div class="pdf-sub">PDF herunterladen</div>
         </div>
 
-        <audio
-          id="audio"
-          src="Zeit-fuer-dich_2026.m4a"
-          preload="metadata">
-        </audio>
+        <div class="pdf-arrow">↓</div>
 
-        <!-- PROGRESS -->
+      </a>
 
-        <div class="progress-wrap" id="progressWrap">
+    </div>
 
-          <div
-            class="progress-fill"
-            id="progressFill">
-          </div>
-
-        </div>
-
-        <!-- TIME -->
-
-        <div class="time-row">
-
-          <span id="timeCurrent">
-            0:00
-          </span>
-
-          <span id="timeDuration">
-            –:––
-          </span>
-
-        </div>
-
-        <!-- CONTROLS -->
-
-        <div class="controls">
-
-          <!-- BACK -->
-
-          <button
-            class="btn-skip"
-            id="btnBack"
-            title="15 Sekunden zurück">
-
-            ↺ 15s
-
-          </button>
-
-          <!-- PLAY -->
-
-          <button
-            class="btn-play"
-            id="btnPlay">
-
-            <svg
-              id="iconPlay"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24">
-
-              <polygon points="5,3 19,12 5,21"/>
-
-            </svg>
-
-            <svg
-              id="iconPause"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              style="display:none">
-
-              <rect
-                x="6"
-                y="3"
-                width="4"
-                height="18"
-                rx="1"/>
-
-              <rect
-                x="14"
-                y="3"
-                width="4"
-                height="18"
-                rx="1"/>
-
-            </svg>
-
-          </button>
-
-          <!-- FORWARD -->
-
-          <button
-            class="btn-skip"
-            id="btnFwd"
-            title="15 Sekunden vor">
-
-            ↻ 15s
-
-          </button>
-
-        </div>
-
-      </div>
-
-      <!-- PDF -->
-
-      <div class="pdf-section">
-
-        <a
-          href="Zeit_fuer_Dich_Achtsamkeitsuebung.pdf"
-          target="_blank"
-          class="pdf-btn">
-
-          <div class="pdf-icon">
-
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#8aa35c"
-              stroke-width="1.7"
-              stroke-linecap="round"
-              stroke-linejoin="round">
-
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-
-              <polyline points="14 2 14 8 20 8"/>
-
-            </svg>
-
-          </div>
-
-          <div>
-
-            <div class="pdf-title">
-              Übungsblatt herunterladen
-            </div>
-
-            <div class="pdf-sub">
-              Zeit für Dich – Achtsamkeitsübung als PDF
-            </div>
-
-          </div>
-
-          <div class="pdf-arrow">
-            ↓
-          </div>
-
-        </a>
-
-      </div>
-
-      <!-- FOOTER -->
-
-      <div class="footer">
-
-        <div class="footer-main">
-         KLARTeXt. — echt. mutig. klar.
-        </div>
-
-        <div class="footer-copy">
-          © KLARTeXt.Das Magazin mit Haltung · Alle Urheber- und Nutzungsrechte vorbehalten
-        </div>
-
-      </div>
-
+    <div class="footer">
+      <div class="footer-main">KLARTeXt — echt. klar. ruhig.</div>
+      <div class="footer-copy">© Alle Rechte vorbehalten</div>
     </div>
 
   </div>
+</div>
 
-  <!-- SCRIPT -->
+<script>
 
-  <script>
+const audio = document.getElementById('audio');
+const btnPlay = document.getElementById('btnPlay');
+const iconPlay = document.getElementById('iconPlay');
+const iconPause = document.getElementById('iconPause');
 
-    const audio        = document.getElementById('audio');
-    const btnPlay      = document.getElementById('btnPlay');
-    const iconPlay     = document.getElementById('iconPlay');
-    const iconPause    = document.getElementById('iconPause');
+const progressFill = document.getElementById('progressFill');
+const progressWrap = document.getElementById('progressWrap');
 
-    const progressFill = document.getElementById('progressFill');
-    const progressWrap = document.getElementById('progressWrap');
+const timeCurrent = document.getElementById('timeCurrent');
+const timeDuration = document.getElementById('timeDuration');
 
-    const timeCurrent  = document.getElementById('timeCurrent');
-    const timeDuration = document.getElementById('timeDuration');
+function fmt(s){
+  if(!isFinite(s)) return '–:––';
+  return `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+}
 
-    function fmt(s){
+audio.addEventListener('loadedmetadata',()=>{
+  timeDuration.textContent = fmt(audio.duration);
+});
 
-      if(!isFinite(s)) return '–:––';
+audio.addEventListener('timeupdate',()=>{
+  const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+  progressFill.style.width = pct + '%';
+  timeCurrent.textContent = fmt(audio.currentTime);
+});
 
-      return `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+btnPlay.addEventListener('click',()=>{
+  if(audio.paused){
+    audio.play().catch(()=>{});
+    iconPlay.style.display='none';
+    iconPause.style.display='';
+  } else {
+    audio.pause();
+    iconPlay.style.display='';
+    iconPause.style.display='none';
+  }
+});
 
-    }
+document.getElementById('btnBack').onclick = () =>
+  audio.currentTime = Math.max(0, audio.currentTime - 15);
 
-    audio.addEventListener('loadedmetadata',()=>{
+document.getElementById('btnFwd').onclick = () =>
+  audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 15);
 
-      timeDuration.textContent = fmt(audio.duration);
+progressWrap.onclick = (e) => {
+  if(!audio.duration) return;
+  const rect = progressWrap.getBoundingClientRect();
+  audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+};
 
-    });
-
-    audio.addEventListener('timeupdate',()=>{
-
-      const pct = audio.duration
-        ? (audio.currentTime / audio.duration) * 100
-        : 0;
-
-      progressFill.style.width = pct + '%';
-
-      timeCurrent.textContent = fmt(audio.currentTime);
-
-    });
-
-    audio.addEventListener('ended',()=>{
-
-      iconPlay.style.display='';
-      iconPause.style.display='none';
-
-    });
-
-    btnPlay.addEventListener('click',()=>{
-
-      if(audio.paused){
-
-        audio.play().catch(()=>{});
-
-        iconPlay.style.display='none';
-        iconPause.style.display='';
-
-      } else {
-
-        audio.pause();
-
-        iconPlay.style.display='';
-        iconPause.style.display='none';
-
-      }
-
-    });
-
-    document.getElementById('btnBack')
-      .addEventListener('click',()=>{
-
-      audio.currentTime = Math.max(
-        0,
-        audio.currentTime - 15
-      );
-
-    });
-
-    document.getElementById('btnFwd')
-      .addEventListener('click',()=>{
-
-      audio.currentTime = Math.min(
-        audio.duration || 0,
-        audio.currentTime + 15
-      );
-
-    });
-
-    progressWrap.addEventListener('click',(e)=>{
-
-      if(!audio.duration) return;
-
-      const rect = progressWrap.getBoundingClientRect();
-
-      audio.currentTime =
-        ((e.clientX - rect.left) / rect.width)
-        * audio.duration;
-
-    });
-
-  </script>
+</script>
 
 </body>
 </html>
