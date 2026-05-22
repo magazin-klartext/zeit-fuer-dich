@@ -3,14 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KLARTeXt. – Achtsamkeitsübung</title>
+  <title>KLARTeXt. · Audio Experience</title>
 
-  <!-- Google Font -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
+
+    :root{
+      --bg:#f6f2eb;
+      --paper:#fffefb;
+      --text:#222;
+      --muted:#666;
+      --green:#a9bf7a;
+      --green-dark:#8aa35c;
+      --blue:#c9dff0;
+      --shadow:0 10px 40px rgba(0,0,0,.08);
+    }
+
     *{
       margin:0;
       padding:0;
@@ -19,8 +32,8 @@
 
     body{
       font-family:'Inter',sans-serif;
-      background:#f6f2eb;
-      color:#222;
+      background:var(--bg);
+      color:var(--text);
       min-height:100vh;
       overflow-x:hidden;
       position:relative;
@@ -39,160 +52,363 @@
       pointer-events:none;
     }
 
+    /* NAV */
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      background:rgba(246,242,235,.78);
+      border-bottom:1px solid rgba(0,0,0,.05);
+      padding:14px 22px;
+    }
+
+    .nav-inner{
+      max-width:960px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .nav-logo{
+      height:56px;
+      width:auto;
+      object-fit:contain;
+    }
+
+    /* WRAPPER */
+
     .wrapper{
       width:100%;
-      min-height:100vh;
       display:flex;
       justify-content:center;
-      align-items:center;
-      padding:40px 20px;
+      padding:50px 20px 80px;
     }
 
     .card{
       width:100%;
-      max-width:500px;
-      background:#fffefb;
-      border-radius:24px;
-      padding:38px 32px;
+      max-width:560px;
+      background:var(--paper);
+      border-radius:28px;
+      padding:42px 34px;
       position:relative;
-      box-shadow:
-        0 10px 40px rgba(0,0,0,.08),
-        0 2px 8px rgba(0,0,0,.05);
       overflow:hidden;
+      box-shadow:var(--shadow);
     }
 
-    /* Farbflächen wie im Magazin */
+    /* Magazin-Flächen */
+
     .card::before{
       content:"";
       position:absolute;
-      top:-60px;
-      right:-60px;
-      width:180px;
-      height:180px;
-      background:#b7d08b;
+      top:-70px;
+      right:-70px;
+      width:220px;
+      height:220px;
+      background:var(--green);
       border-radius:50%;
-      opacity:.35;
+      opacity:.28;
     }
 
     .card::after{
       content:"";
       position:absolute;
-      bottom:-80px;
-      left:-80px;
-      width:220px;
-      height:220px;
-      background:#c6dff2;
+      bottom:-100px;
+      left:-100px;
+      width:260px;
+      height:260px;
+      background:var(--blue);
       border-radius:50%;
       opacity:.35;
     }
 
+    .brush{
+      position:absolute;
+      top:24px;
+      left:26px;
+      width:90px;
+      height:14px;
+      background:#111;
+      opacity:.08;
+      border-radius:30px;
+      transform:rotate(-4deg);
+    }
+
     .label{
+      position:relative;
+      z-index:2;
+
       display:inline-block;
       background:#111;
       color:#fff;
+
       padding:6px 12px;
-      font-size:.75rem;
+      border-radius:4px;
+
+      font-size:.72rem;
       letter-spacing:.12em;
       text-transform:uppercase;
-      border-radius:4px;
-      margin-bottom:18px;
-      position:relative;
-      z-index:2;
+
+      margin-bottom:22px;
     }
 
     h1{
-      font-family:'Oswald',sans-serif;
-      font-size:3rem;
-      line-height:.95;
-      text-transform:uppercase;
-      margin-bottom:20px;
       position:relative;
       z-index:2;
+
+      font-family:'Oswald',sans-serif;
+      text-transform:uppercase;
+
+      font-size:3.1rem;
+      line-height:.95;
+
+      margin-bottom:22px;
     }
 
     .accent{
-      color:#8ba95f;
+      color:var(--green-dark);
     }
 
     .intro{
-      font-size:1rem;
-      line-height:1.7;
-      color:#555;
-      margin-bottom:30px;
       position:relative;
       z-index:2;
+
+      color:#555;
+      line-height:1.8;
+      font-size:1rem;
+
+      margin-bottom:30px;
     }
 
     .quote{
-      border-left:4px solid #8ba95f;
-      padding-left:16px;
-      margin-bottom:30px;
-      font-style:italic;
-      color:#444;
-      line-height:1.6;
       position:relative;
       z-index:2;
+
+      border-left:4px solid var(--green-dark);
+      padding-left:18px;
+
+      color:#444;
+      line-height:1.7;
+      font-style:italic;
+
+      margin-bottom:34px;
     }
 
+    /* PLAYER */
+
     .player{
-      background:#f4f4f1;
-      border-radius:18px;
-      padding:22px;
       position:relative;
       z-index:2;
+
+      background:#f5f5f1;
+      border-radius:22px;
+      padding:24px;
+
       border:1px solid rgba(0,0,0,.05);
     }
 
     .player-title{
       font-weight:600;
-      margin-bottom:14px;
+      margin-bottom:18px;
       font-size:1rem;
     }
 
     audio{
-      width:100%;
-      margin-top:10px;
+      display:none;
     }
 
-    .footer{
-      margin-top:28px;
-      font-size:.82rem;
+    .progress-wrap{
+      width:100%;
+      height:7px;
+      border-radius:999px;
+      background:rgba(0,0,0,.08);
+      overflow:hidden;
+      cursor:pointer;
+      margin-bottom:12px;
+    }
+
+    .progress-fill{
+      width:0%;
+      height:100%;
+      background:linear-gradient(90deg,var(--green-dark),#7fa0c2);
+      border-radius:inherit;
+    }
+
+    .time-row{
+      display:flex;
+      justify-content:space-between;
+      font-size:.8rem;
       color:#777;
-      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .controls{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:28px;
+    }
+
+    .btn-skip{
+      border:none;
+      background:none;
+      cursor:pointer;
+      color:#888;
+      transition:.2s ease;
+      font-size:1rem;
+    }
+
+    .btn-skip:hover{
+      transform:scale(1.08);
+      color:#444;
+    }
+
+    .btn-play{
+      width:74px;
+      height:74px;
+      border-radius:50%;
+      border:none;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      cursor:pointer;
+
+      background:linear-gradient(145deg,var(--green-dark),#79995a);
+
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.14),
+        inset 0 1px 1px rgba(255,255,255,.25);
+
+      transition:.25s ease;
+    }
+
+    .btn-play:hover{
+      transform:translateY(-2px) scale(1.04);
+    }
+
+    .btn-play svg{
+      fill:white;
+      color:white;
+    }
+
+    /* PDF */
+
+    .pdf-section{
       position:relative;
       z-index:2;
+      margin-top:26px;
     }
 
-    .brush{
-      position:absolute;
-      top:22px;
-      left:22px;
-      width:80px;
-      height:14px;
-      background:#111;
-      opacity:.08;
+    .pdf-btn{
+      display:flex;
+      align-items:center;
+      gap:16px;
+
+      text-decoration:none;
+      color:var(--text);
+
+      background:#f7f5f1;
+      border:1px solid rgba(0,0,0,.05);
+
+      padding:18px 20px;
       border-radius:20px;
-      transform:rotate(-4deg);
+
+      transition:.2s ease;
     }
+
+    .pdf-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+    }
+
+    .pdf-icon{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:rgba(169,191,122,.18);
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      flex-shrink:0;
+    }
+
+    .pdf-title{
+      font-weight:600;
+      margin-bottom:2px;
+    }
+
+    .pdf-sub{
+      font-size:.82rem;
+      color:#777;
+    }
+
+    .pdf-arrow{
+      margin-left:auto;
+      color:#999;
+      font-size:1.1rem;
+    }
+
+    /* FOOTER */
+
+    .footer{
+      position:relative;
+      z-index:2;
+
+      margin-top:30px;
+      text-align:center;
+
+      font-size:.82rem;
+      color:#777;
+    }
+
+    /* MOBILE */
 
     @media(max-width:600px){
 
       .card{
-        padding:30px 24px;
+        padding:34px 24px;
       }
 
       h1{
-        font-size:2.3rem;
+        font-size:2.45rem;
       }
 
       .intro{
         font-size:.95rem;
       }
+
+      .btn-play{
+        width:68px;
+        height:68px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
+
+  <!-- NAV -->
+
+  <nav>
+    <div class="nav-inner">
+      <img
+        src="Klartext-logo.png"
+        alt="KLARTeXt. Logo"
+        class="nav-logo"
+      />
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
 
   <div class="wrapper">
 
@@ -200,23 +416,27 @@
 
       <div class="brush"></div>
 
-      <div class="label">KLARTeXt. Audio Experience</div>
+      <div class="label">
+        KLARTeXt. Audio Experience
+      </div>
 
       <h1>
-        Achtsamkeit<br>
-        <span class="accent">zum Anhören</span>
+        Zeit für<br>
+        <span class="accent">Dich</span>
       </h1>
 
       <p class="intro">
-        Willkommen zu deiner kurzen Pause.  
+        Willkommen zu deiner kleinen Pause.
         Diese Übung hilft dir, einen Moment bewusst wahrzunehmen,
-        durchzuatmen und wieder bei dir anzukommen.
+        durchzuatmen und wieder bei dir selbst anzukommen.
       </p>
 
       <div class="quote">
-        „Nicht perfekt sein müssen.  
+        „Nicht perfekt sein müssen.
         Einfach kurz ankommen.“
       </div>
+
+      <!-- PLAYER -->
 
       <div class="player">
 
@@ -224,11 +444,114 @@
           🎧 Geführte Achtsamkeitsübung
         </div>
 
-        <!-- AUDIO DATEI ERSETZEN -->
-        <audio controls>
-          <source src="audio/achtsamkeit.mp3" type="audio/mpeg">
-          Dein Browser unterstützt kein Audio.
+        <audio
+          id="audio"
+          src="Zeit-fuer-dich_2026.m4a"
+          preload="metadata">
         </audio>
+
+        <div class="progress-wrap" id="progressWrap">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="time-row">
+          <span id="timeCurrent">0:00</span>
+          <span id="timeDuration">–:––</span>
+        </div>
+
+        <div class="controls">
+
+          <!-- BACK -->
+
+          <button
+            class="btn-skip"
+            id="btnBack"
+            title="15 Sekunden zurück">
+            ↺ 15s
+          </button>
+
+          <!-- PLAY -->
+
+          <button class="btn-play" id="btnPlay">
+
+            <svg
+              id="iconPlay"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24">
+
+              <polygon points="5,3 19,12 5,21"/>
+            </svg>
+
+            <svg
+              id="iconPause"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              style="display:none">
+
+              <rect x="6" y="3" width="4" height="18" rx="1"/>
+              <rect x="14" y="3" width="4" height="18" rx="1"/>
+            </svg>
+
+          </button>
+
+          <!-- FORWARD -->
+
+          <button
+            class="btn-skip"
+            id="btnFwd"
+            title="15 Sekunden vor">
+            ↻ 15s
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- PDF -->
+
+      <div class="pdf-section">
+
+        <a
+          href="Zeit_fuer_Dich_Achtsamkeitsuebung.pdf"
+          target="_blank"
+          class="pdf-btn">
+
+          <div class="pdf-icon">
+
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#8aa35c"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+
+            </svg>
+
+          </div>
+
+          <div>
+            <div class="pdf-title">
+              Übungsblatt herunterladen
+            </div>
+
+            <div class="pdf-sub">
+              Zeit für Dich – Achtsamkeitsübung als PDF
+            </div>
+          </div>
+
+          <div class="pdf-arrow">
+            ↓
+          </div>
+
+        </a>
 
       </div>
 
@@ -239,6 +562,106 @@
     </div>
 
   </div>
+
+  <!-- SCRIPT -->
+
+  <script>
+
+    const audio        = document.getElementById('audio');
+    const btnPlay      = document.getElementById('btnPlay');
+    const iconPlay     = document.getElementById('iconPlay');
+    const iconPause    = document.getElementById('iconPause');
+
+    const progressFill = document.getElementById('progressFill');
+    const progressWrap = document.getElementById('progressWrap');
+
+    const timeCurrent  = document.getElementById('timeCurrent');
+    const timeDuration = document.getElementById('timeDuration');
+
+    function fmt(s){
+      if(!isFinite(s)) return '–:––';
+
+      return `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+    }
+
+    audio.addEventListener('loadedmetadata',()=>{
+
+      timeDuration.textContent = fmt(audio.duration);
+
+    });
+
+    audio.addEventListener('timeupdate',()=>{
+
+      const pct = audio.duration
+        ? (audio.currentTime / audio.duration) * 100
+        : 0;
+
+      progressFill.style.width = pct + '%';
+
+      timeCurrent.textContent = fmt(audio.currentTime);
+
+    });
+
+    audio.addEventListener('ended',()=>{
+
+      iconPlay.style.display='';
+      iconPause.style.display='none';
+
+    });
+
+    btnPlay.addEventListener('click',()=>{
+
+      if(audio.paused){
+
+        audio.play().catch(()=>{});
+
+        iconPlay.style.display='none';
+        iconPause.style.display='';
+
+      } else {
+
+        audio.pause();
+
+        iconPlay.style.display='';
+        iconPause.style.display='none';
+
+      }
+
+    });
+
+    document.getElementById('btnBack')
+      .addEventListener('click',()=>{
+
+      audio.currentTime = Math.max(
+        0,
+        audio.currentTime - 15
+      );
+
+    });
+
+    document.getElementById('btnFwd')
+      .addEventListener('click',()=>{
+
+      audio.currentTime = Math.min(
+        audio.duration || 0,
+        audio.currentTime + 15
+      );
+
+    });
+
+    progressWrap.addEventListener('click',(e)=>{
+
+      if(!audio.duration) return;
+
+      const rect = progressWrap.getBoundingClientRect();
+
+      audio.currentTime =
+        ((e.clientX - rect.left) / rect.width)
+        * audio.duration;
+
+    });
+
+  </script>
 
 </body>
 </html>
