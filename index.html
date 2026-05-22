@@ -3,755 +3,634 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Zeit für Dich · KLARTeXt.</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Raleway:wght@300;400;500;600&family=Josefin+Sans:ital,wght@0,300;0,600;0,700;1,300;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet" />
 
   <style>
 
-    :root {
-      --blue:      #5f6f95;
-      --blue-dark: #43516d;
-      --blue-soft: #8e99bb;
+    :root{
+      --bg:#f4eee8;
+      --bg2:#efe7e1;
 
-      --rose:      #e5c8bc;
-      --rose-bg:   #f5eeea;
-      --rose-mid:  #d9b59d;
+      --black:#181818;
+      --text:#3d3d3d;
 
-      --lavender:  #767cb7;
-      --lavender-light: #a8add9;
+      --lav:#7278b4;
+      --lav-dark:#5c6397;
+      --lav-soft:#9196c7;
 
-      --gold:      #b8924a;
+      --rose:#e6c9bb;
+      --rose-soft:#f3e7df;
 
-      --black:     #171717;
-      --gray:      #565c66;
-      --lightgray: #ddd7d2;
+      --gold:#b8924a;
 
-      --white:     #ffffff;
-      --bg:        #f3ece7;
+      --line:rgba(0,0,0,0.08);
+      --white:#ffffff;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html{
+      scroll-behavior:smooth;
     }
 
-    body {
-
+    body{
+      font-family:'Barlow',sans-serif;
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.55), transparent 28%),
-        linear-gradient(to bottom, #f6f1ed 0%, #eee5df 100%);
-
-      font-family: 'Raleway', sans-serif;
-      font-weight: 400;
-      color: var(--black);
-
-      min-height: 100dvh;
-
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+        radial-gradient(circle at top right, rgba(255,255,255,0.5), transparent 30%),
+        linear-gradient(to bottom,var(--bg),var(--bg2));
+      color:var(--black);
+      min-height:100dvh;
     }
 
-    /* ───────────────── NAV ───────────────── */
+    /* NAV */
 
-    nav {
+    nav{
+      position:sticky;
+      top:0;
+      z-index:100;
 
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
 
-      display: flex;
-      align-items: center;
+      padding:16px 24px;
 
-      padding: 18px 30px;
+      background:rgba(114,120,180,0.88);
 
-      background: rgba(95,111,149,0.82);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
 
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      border-bottom:1px solid rgba(255,255,255,0.12);
+      box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    }
 
-      border-bottom: 1px solid rgba(255,255,255,0.10);
+    .nav-logo-img{
+      height:48px;
+      width:auto;
+      display:block;
+    }
+
+    .nav-tagline{
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:11px;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.75);
+    }
+
+    /* HERO */
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:72px 28px 60px;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      top:-120px;
+      right:-80px;
+
+      width:280px;
+      height:280px;
+
+      border-radius:50%;
+
+      background:rgba(255,255,255,0.26);
+
+      filter:blur(4px);
+    }
+
+    .hero-kicker{
+      display:inline-block;
+
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:11px;
+      font-weight:700;
+
+      letter-spacing:0.20em;
+      text-transform:uppercase;
+
+      color:var(--lav-dark);
+
+      margin-bottom:20px;
+    }
+
+    .hero h1{
+      font-family:'Barlow Condensed',sans-serif;
+      font-style:italic;
+      font-weight:900;
+
+      font-size:clamp(4rem,16vw,6rem);
+
+      line-height:0.9;
+      letter-spacing:-0.02em;
+      text-transform:uppercase;
+
+      color:var(--black);
+
+      margin-bottom:20px;
+    }
+
+    .hero h1 span{
+      color:var(--lav);
+      display:block;
+    }
+
+    .hero-divider{
+      width:52px;
+      height:3px;
+
+      background:var(--rose);
+
+      margin-bottom:24px;
+    }
+
+    .hero-sub{
+      max-width:360px;
+
+      font-size:1rem;
+      line-height:1.9;
+
+      color:rgba(0,0,0,0.62);
+    }
+
+    /* TAPE */
+
+    .tape{
+      overflow:hidden;
+
+      padding:10px 0;
+
+      background:linear-gradient(90deg,var(--lav),var(--lav-dark));
+
+      white-space:nowrap;
+    }
+
+    .tape-inner{
+      display:inline-block;
+
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:11px;
+      font-weight:700;
+
+      letter-spacing:0.25em;
+      text-transform:uppercase;
+
+      color:rgba(255,255,255,0.88);
+
+      animation:marquee 20s linear infinite;
+    }
+
+    @keyframes marquee{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(-50%); }
+    }
+
+    /* PLAYER */
+
+    .player-section{
+      max-width:520px;
+      width:calc(100% - 32px);
+
+      margin:-22px auto 0;
+
+      padding:28px 28px 30px;
+
+      border-radius:28px;
+
+      background:rgba(255,255,255,0.74);
+
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+
+      border:1px solid rgba(255,255,255,0.6);
 
       box-shadow:
-        0 2px 18px rgba(0,0,0,0.10),
-        inset 0 -1px rgba(255,255,255,0.06);
+        0 12px 40px rgba(114,120,180,0.12),
+        0 2px 8px rgba(0,0,0,0.04);
     }
 
-    .nav-logo-img {
-      height: 54px;
-      width: auto;
-      display: block;
+    .player-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+
+      margin-bottom:20px;
     }
 
-    /* ───────────────── HERO ───────────────── */
+    .player-label{
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:11px;
+      font-weight:700;
 
-    .hero {
+      letter-spacing:0.16em;
+      text-transform:uppercase;
 
-      position: relative;
-      overflow: hidden;
+      color:var(--lav-dark);
+    }
 
-      text-align: center;
+    .player-badge{
+      background:rgba(114,120,180,0.12);
 
-      padding: 78px 24px 78px;
+      color:var(--lav-dark);
+
+      padding:6px 10px;
+
+      border-radius:999px;
+
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:0.08em;
+    }
+
+    .player-title{
+      font-family:'Playfair Display',serif;
+      font-style:italic;
+      font-size:1.6rem;
+
+      margin-bottom:24px;
+
+      color:var(--black);
+    }
+
+    audio{
+      display:none;
+    }
+
+    .progress-wrap{
+      height:6px;
+
+      border-radius:999px;
+
+      overflow:hidden;
+
+      background:rgba(114,120,180,0.12);
+
+      cursor:pointer;
+
+      margin-bottom:14px;
+    }
+
+    .progress-fill{
+      width:0%;
+      height:100%;
+
+      border-radius:inherit;
+
+      background:linear-gradient(90deg,var(--lav),var(--rose));
+
+      transition:width 0.2s linear;
+    }
+
+    .time-row{
+      display:flex;
+      justify-content:space-between;
+
+      margin-bottom:28px;
+
+      font-size:11px;
+      letter-spacing:0.08em;
+
+      color:rgba(0,0,0,0.45);
+    }
+
+    /* CONTROLS */
+
+    .controls{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:28px;
+    }
+
+    .btn-skip{
+      border:none;
+      background:none;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+
+      cursor:pointer;
+
+      color:rgba(114,120,180,0.45);
+
+      transition:0.2s ease;
+    }
+
+    .btn-skip:hover{
+      transform:scale(1.08);
+      color:var(--lav);
+    }
+
+    .skip-arrow{
+      font-size:18px;
+      line-height:1;
+    }
+
+    .skip-label{
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:9px;
+      letter-spacing:0.08em;
+    }
+
+    .btn-play{
+      width:74px;
+      height:74px;
+
+      border:none;
+      border-radius:50%;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      cursor:pointer;
+
+      background:
+        linear-gradient(145deg,var(--lav-soft),var(--lav-dark));
+
+      box-shadow:
+        0 12px 28px rgba(114,120,180,0.28),
+        inset 0 1px 1px rgba(255,255,255,0.24);
+
+      transition:0.25s ease;
+    }
+
+    .btn-play:hover{
+      transform:translateY(-2px) scale(1.04);
+    }
+
+    .btn-play svg{
+      fill:#fff;
+      color:#fff;
+    }
+
+    /* PDF */
+
+    .pdf-section{
+      max-width:520px;
+      width:calc(100% - 32px);
+
+      margin:22px auto 0;
+    }
+
+    .pdf-btn{
+      display:flex;
+      align-items:center;
+      gap:16px;
+
+      padding:18px 22px;
+
+      border-radius:24px;
+
+      text-decoration:none;
+
+      background:rgba(255,255,255,0.7);
+
+      backdrop-filter:blur(12px);
+
+      border:1px solid rgba(255,255,255,0.5);
+
+      color:var(--black);
+
+      transition:0.22s ease;
+    }
+
+    .pdf-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(114,120,180,0.08);
+    }
+
+    .pdf-icon{
+      width:42px;
+      height:42px;
+
+      min-width:42px;
+
+      border-radius:50%;
+
+      background:rgba(230,201,187,0.32);
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .pdf-title{
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:0.95rem;
+      font-weight:700;
+
+      letter-spacing:0.05em;
+      text-transform:uppercase;
+    }
+
+    .pdf-sub{
+      font-size:0.78rem;
+      color:rgba(0,0,0,0.55);
+    }
+
+    .pdf-arrow{
+      margin-left:auto;
+
+      color:var(--lav);
+
+      font-size:1.2rem;
+    }
+
+    /* GUIDE */
+
+    .guide{
+      max-width:520px;
+      width:calc(100% - 32px);
+
+      margin:48px auto 0;
+    }
+
+    .guide-label{
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:11px;
+      font-weight:700;
+
+      letter-spacing:0.24em;
+      text-transform:uppercase;
+
+      color:rgba(0,0,0,0.45);
+
+      margin-bottom:14px;
+    }
+
+    .guide h2{
+      font-family:'Barlow Condensed',sans-serif;
+      font-style:italic;
+      font-weight:900;
+
+      font-size:clamp(2.5rem,10vw,3.4rem);
+
+      line-height:0.95;
+      text-transform:uppercase;
+
+      margin-bottom:34px;
+    }
+
+    .guide h2 span{
+      color:var(--lav);
+    }
+
+    .step{
+      display:grid;
+      grid-template-columns:42px 1fr;
+
+      gap:0 18px;
+
+      padding:24px 0;
+
+      border-bottom:1px solid var(--line);
+    }
+
+    .step:last-child{
+      border-bottom:none;
+    }
+
+    .step-num{
+      font-family:'Barlow Condensed',sans-serif;
+      font-style:italic;
+      font-weight:900;
+
+      font-size:2rem;
+
+      color:rgba(114,120,180,0.18);
+
+      text-align:right;
+    }
+
+    .step-heading{
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:1rem;
+      font-weight:700;
+
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+
+      margin-bottom:8px;
+    }
+
+    .step-text{
+      font-size:0.93rem;
+      line-height:1.95;
+
+      color:rgba(0,0,0,0.68);
+    }
+
+    .step-text strong{
+      color:var(--black);
+    }
+
+    /* QUOTE */
+
+    .quote{
+      max-width:520px;
+      width:calc(100% - 32px);
+
+      margin:44px auto 0;
+
+      padding:30px;
+
+      border-left:4px solid var(--lav);
+
+      background:rgba(255,255,255,0.55);
+
+      border-radius:0 22px 22px 0;
+    }
+
+    .quote p{
+      font-family:'Playfair Display',serif;
+      font-style:italic;
+
+      font-size:1.1rem;
+      line-height:1.8;
+
+      color:var(--black);
+    }
+
+    /* CLOSING */
+
+    .closing{
+      max-width:520px;
+      width:calc(100% - 32px);
+
+      margin:36px auto 54px;
+
+      padding:36px 30px;
+
+      border-radius:28px;
 
       background:
         linear-gradient(
           180deg,
-          rgba(229,200,188,0.95),
-          rgba(246,241,237,0.96)
-        );
-    }
-
-    .hero::before {
-
-      content: '';
-
-      position: absolute;
-
-      top: -80px;
-      right: -80px;
-
-      width: 280px;
-      height: 280px;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(255,255,255,0.30),
-          transparent 70%
+          rgba(230,201,187,0.68),
+          rgba(255,255,255,0.55)
         );
 
-      pointer-events: none;
+      text-align:center;
+
+      box-shadow:0 10px 30px rgba(114,120,180,0.08);
     }
 
-    .hero-eyebrow {
+    .closing p{
+      font-family:'Playfair Display',serif;
+      font-style:italic;
 
-      font-size: 13px;
-      font-weight: 700;
+      font-size:1.2rem;
+      line-height:1.8;
 
-      letter-spacing: 0.08em;
+      color:rgba(0,0,0,0.72);
 
-      color: var(--black);
-
-      margin-bottom: 18px;
+      margin-bottom:8px;
     }
 
-    .hero h1 {
-
-      font-family: 'Josefin Sans', sans-serif;
-      font-style: italic;
-      font-weight: 700;
-
-      font-size: clamp(3rem, 9vw, 4.8rem);
-
-      letter-spacing: 0.04em;
-      line-height: 0.95;
-
-      color: var(--blue-dark);
-
-      margin-bottom: 22px;
-
-      text-shadow:
-        0 1px 0 rgba(255,255,255,0.35);
+    .heart{
+      margin-top:10px;
+      color:var(--rose);
+      font-size:1.3rem;
     }
 
-    .hero-divider {
+    /* FOOTER */
 
-      width: 52px;
-      height: 1px;
+    footer{
+      padding:0 24px 40px;
 
-      background: var(--rose-mid);
+      text-align:center;
 
-      margin: 0 auto 28px;
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:10px;
+
+      letter-spacing:0.20em;
+      text-transform:uppercase;
+
+      color:rgba(0,0,0,0.34);
     }
 
-    .hero p {
+    @media(max-width:480px){
 
-      max-width: 390px;
-
-      margin: 0 auto;
-
-      font-size: 1rem;
-      font-weight: 400;
-
-      line-height: 2.05;
-
-      color: var(--black);
-
-      opacity: 0.72;
-    }
-
-    /* ───────────────── CARD WIDTH ───────────────── */
-
-    .card-width {
-      max-width: 520px;
-      width: calc(100% - 32px);
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ───────────────── PLAYER ───────────────── */
-
-    .player-section {
-
-      position: relative;
-      overflow: hidden;
-
-      max-width: 520px;
-      width: calc(100% - 32px);
-
-      margin: 0 auto;
-
-      transform: translateY(-42px);
-
-      padding: 38px 34px 34px;
-
-      border-radius: 32px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,0.82),
-          rgba(255,255,255,0.70)
-        );
-
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-
-      border: 1px solid rgba(255,255,255,0.55);
-
-      box-shadow:
-        0 20px 60px rgba(67,81,109,0.10),
-        0 4px 18px rgba(0,0,0,0.05),
-        inset 0 1px rgba(255,255,255,0.55);
-    }
-
-    .player-section::before {
-
-      content: '';
-
-      position: absolute;
-
-      top: -90px;
-      right: -90px;
-
-      width: 220px;
-      height: 220px;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(168,173,217,0.22),
-          transparent 70%
-        );
-
-      pointer-events: none;
-    }
-
-    .player-label {
-
-      text-align: center;
-
-      font-size: 10px;
-      font-weight: 500;
-
-      letter-spacing: 0.12em;
-
-      color: var(--gray);
-
-      margin-bottom: 26px;
-    }
-
-    audio {
-      display: none;
-    }
-
-    .progress-wrap {
-
-      height: 6px;
-
-      border-radius: 999px;
-
-      background: rgba(95,111,149,0.10);
-
-      overflow: hidden;
-
-      cursor: pointer;
-
-      margin-bottom: 14px;
-    }
-
-    .progress-fill {
-
-      width: 0%;
-      height: 100%;
-
-      border-radius: inherit;
-
-      background:
-        linear-gradient(
-          90deg,
-          var(--blue),
-          var(--lavender-light)
-        );
-
-      transition: width 0.2s linear;
-    }
-
-    .time-row {
-
-      display: flex;
-      justify-content: space-between;
-
-      margin-bottom: 28px;
-
-      font-size: 11px;
-      font-weight: 500;
-
-      letter-spacing: 0.05em;
-
-      color: var(--gray);
-    }
-
-    /* ───────────────── CONTROLS ───────────────── */
-
-    .controls {
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      gap: 28px;
-    }
-
-    .btn-skip {
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      flex-direction: column;
-
-      gap: 3px;
-
-      padding: 8px;
-
-      border: none;
-      background: none;
-
-      cursor: pointer;
-
-      color: rgba(95,111,149,0.45);
-
-      transition:
-        transform 0.2s ease,
-        color 0.2s ease;
-    }
-
-    .btn-skip:hover {
-
-      color: var(--blue-dark);
-
-      transform: scale(1.08);
-    }
-
-    .skip-icon {
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      gap: 2px;
-
-      line-height: 1;
-    }
-
-    .skip-arrow {
-
-      font-size: 16px;
-      line-height: 1;
-    }
-
-    .skip-label {
-
-      font-size: 9px;
-      font-weight: 600;
-
-      letter-spacing: 0.03em;
-    }
-
-    /* ───────────────── PLAY BUTTON ───────────────── */
-
-    .btn-play {
-
-      width: 78px;
-      height: 78px;
-
-      border-radius: 50%;
-      border: none;
-
-      cursor: pointer;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background:
-        linear-gradient(
-          145deg,
-          #7c82c2,
-          #58688f
-        );
-
-      box-shadow:
-        0 16px 34px rgba(95,111,149,0.30),
-        inset 0 1px 1px rgba(255,255,255,0.22);
-
-      transition:
-        transform 0.24s ease,
-        box-shadow 0.24s ease;
-    }
-
-    .btn-play:hover {
-
-      transform: translateY(-2px) scale(1.04);
-
-      box-shadow:
-        0 20px 40px rgba(95,111,149,0.34),
-        inset 0 1px 1px rgba(255,255,255,0.22);
-    }
-
-    .btn-play svg {
-
-      color: #ffffff;
-      fill: #ffffff;
-
-      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.08));
-    }
-
-    /* ───────────────── PDF ───────────────── */
-
-    .pdf-section {
-
-      margin-top: 6px;
-
-      display: flex;
-      justify-content: center;
-    }
-
-    .pdf-btn {
-
-      display: flex;
-      align-items: center;
-
-      gap: 18px;
-
-      width: 100%;
-      max-width: 520px;
-
-      padding: 20px 24px;
-
-      text-decoration: none;
-
-      color: var(--black);
-
-      border-radius: 28px;
-
-      background:
-        rgba(255,255,255,0.72);
-
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-
-      border: 1px solid rgba(255,255,255,0.48);
-
-      box-shadow:
-        0 12px 28px rgba(67,81,109,0.08);
-
-      transition:
-        transform 0.22s ease,
-        box-shadow 0.22s ease,
-        border-color 0.22s ease;
-    }
-
-    .pdf-btn:hover {
-
-      transform: translateY(-2px);
-
-      border-color: rgba(217,181,157,0.55);
-
-      box-shadow:
-        0 18px 34px rgba(67,81,109,0.12);
-    }
-
-    .pdf-icon {
-
-      width: 44px;
-      height: 44px;
-      min-width: 44px;
-
-      border-radius: 50%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background:
-        rgba(229,200,188,0.32);
-    }
-
-    .pdf-icon svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .pdf-title {
-
-      font-size: 0.95rem;
-      font-weight: 600;
-
-      margin-bottom: 3px;
-    }
-
-    .pdf-sub {
-
-      font-size: 0.78rem;
-
-      color: var(--gray);
-
-      letter-spacing: 0.03em;
-    }
-
-    .pdf-arrow {
-
-      margin-left: auto;
-
-      font-size: 1.1rem;
-
-      color: rgba(95,111,149,0.48);
-    }
-
-    /* ───────────────── GUIDE ───────────────── */
-
-    .guide-section {
-
-      max-width: 520px;
-      width: calc(100% - 32px);
-
-      margin: 38px auto 0;
-
-      padding-bottom: 54px;
-    }
-
-    .guide-title {
-
-      font-family: 'Josefin Sans', sans-serif;
-      font-style: italic;
-      font-weight: 700;
-
-      text-align: center;
-
-      font-size: 1.9rem;
-
-      letter-spacing: 0.03em;
-
-      color: var(--blue-dark);
-
-      margin-bottom: 8px;
-    }
-
-    .guide-subtitle {
-
-      text-align: center;
-
-      font-size: 10px;
-      font-weight: 500;
-
-      letter-spacing: 0.12em;
-
-      color: var(--gray);
-
-      opacity: 0.7;
-
-      margin-bottom: 36px;
-    }
-
-    .step {
-
-      display: flex;
-      align-items: flex-start;
-
-      gap: 18px;
-
-      padding: 28px 0;
-
-      border-bottom: 1px solid rgba(221,215,210,0.55);
-    }
-
-    .step:last-child {
-      border-bottom: none;
-    }
-
-    .step-num {
-
-      width: 36px;
-      height: 36px;
-      min-width: 36px;
-
-      margin-top: 2px;
-
-      border-radius: 50%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-size: 11px;
-      font-weight: 600;
-
-      color: var(--blue-dark);
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(232,201,187,0.52),
-          rgba(221,184,159,0.42)
-        );
-
-      box-shadow:
-        inset 0 1px rgba(255,255,255,0.55);
-    }
-
-    .step-heading {
-
-      font-size: 0.97rem;
-      font-weight: 600;
-
-      letter-spacing: 0.02em;
-
-      margin-bottom: 8px;
-
-      color: var(--black);
-    }
-
-    .step-text {
-
-      font-size: 0.92rem;
-
-      line-height: 2;
-
-      color: #383838;
-    }
-
-    .step-text strong {
-      font-weight: 600;
-      color: var(--black);
-    }
-
-    /* ───────────────── CLOSING ───────────────── */
-
-    .closing {
-
-      max-width: 520px;
-      width: calc(100% - 32px);
-
-      margin: 8px auto 56px;
-
-      padding: 42px 34px;
-
-      text-align: center;
-
-      border-radius: 32px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(232,201,187,0.82),
-          rgba(255,255,255,0.62)
-        );
-
-      backdrop-filter: blur(16px);
-
-      border: 1px solid rgba(255,255,255,0.45);
-
-      box-shadow:
-        0 18px 40px rgba(95,111,149,0.10);
-    }
-
-    .closing p {
-
-      font-family: 'Josefin Sans', sans-serif;
-      font-style: italic;
-      font-weight: 600;
-
-      font-size: 1.08rem;
-
-      line-height: 1.9;
-
-      color: var(--black);
-
-      opacity: 0.76;
-
-      margin-bottom: 10px;
-    }
-
-    .heart {
-
-      margin-top: 10px;
-
-      font-size: 1.3rem;
-
-      color: var(--rose-mid);
-    }
-
-    /* ───────────────── FOOTER ───────────────── */
-
-    footer {
-
-      padding: 28px 24px 42px;
-
-      text-align: center;
-
-      font-size: 10px;
-      font-weight: 500;
-
-      letter-spacing: 0.22em;
-
-      text-transform: uppercase;
-
-      color: rgba(67,81,109,0.55);
-    }
-
-    /* ───────────────── MOBILE ───────────────── */
-
-    @media (max-width: 480px) {
-
-      .hero {
-        padding-top: 64px;
+      .hero{
+        padding-top:58px;
       }
 
-      .player-section {
-        padding: 32px 24px 28px;
+      .btn-play{
+        width:68px;
+        height:68px;
       }
 
-      .btn-play {
-        width: 72px;
-        height: 72px;
-      }
-
-      .guide-section {
-        margin-top: 30px;
-      }
     }
 
   </style>
@@ -760,48 +639,48 @@
 <body>
 
   <nav>
-    <img
-      src="Klartext-logo.png"
-      alt="KLARTeXt. – Das Magazin mit Haltung"
-      class="nav-logo-img"
-    />
+    <img src="Klartext-logo.png" alt="KLARTeXt." class="nav-logo-img">
+    <span class="nav-tagline">Das Magazin mit Haltung</span>
   </nav>
-
-  <!-- HERO -->
 
   <section class="hero">
 
-    <p class="hero-eyebrow">
-      KLARTeXt.
-      <span style="font-weight:300;opacity:0.7">
-        Das Magazin mit Haltung
-      </span>
-    </p>
+    <div class="hero-kicker">
+      KLARTeXt. · Achtsamkeit
+    </div>
 
-    <h1>Zeit für Dich</h1>
+    <h1>
+      Zeit
+      <span>für Dich.</span>
+    </h1>
 
     <div class="hero-divider"></div>
 
-    <p>
-      Manchmal braucht es nur einen ruhigen Moment,<br>
+    <p class="hero-sub">
+      Manchmal braucht es nur einen ruhigen Moment,
       um wieder bei sich selbst anzukommen.
     </p>
 
   </section>
 
-  <!-- PLAYER -->
+  <div class="tape">
+    <div class="tape-inner">
+      RUHE · ATMUNG · ANKOMMEN · ACHTSAMKEIT · EHRLICHKEIT · RUHE · ATMUNG · ANKOMMEN · ACHTSAMKEIT · EHRLICHKEIT ·
+    </div>
+  </div>
 
-  <section class="player-section card-width">
+  <section class="player-section">
 
-    <p class="player-label">
-      Geführte Achtsamkeitsübung · 4 Min.
-    </p>
+    <div class="player-top">
+      <span class="player-label">Geführte Achtsamkeitsübung</span>
+      <span class="player-badge">4 MIN</span>
+    </div>
 
-    <audio
-      id="audio"
-      src="Zeit-fuer-dich_2026.m4a"
-      preload="metadata">
-    </audio>
+    <div class="player-title">
+      Hör mal rein.
+    </div>
+
+    <audio id="audio" src="Zeit-fuer-dich_2026.m4a" preload="metadata"></audio>
 
     <div class="progress-wrap" id="progressWrap">
       <div class="progress-fill" id="progressFill"></div>
@@ -814,292 +693,32 @@
 
     <div class="controls">
 
-      <button class="btn-skip" id="btnBack" title="15 Sekunden zurück">
-
-        <span class="skip-icon">
-          <span class="skip-arrow">↺</span>
-          <span class="skip-label">15s</span>
-        </span>
-
+      <button class="btn-skip" id="btnBack">
+        <span class="skip-arrow">↺</span>
+        <span class="skip-label">15s</span>
       </button>
 
       <button class="btn-play" id="btnPlay">
 
-        <svg id="iconPlay" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <svg id="iconPlay" width="22" height="22" viewBox="0 0 24 24">
           <polygon points="5,3 19,12 5,21"/>
         </svg>
 
-        <svg id="iconPause" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+        <svg id="iconPause" width="22" height="22" viewBox="0 0 24 24" style="display:none">
           <rect x="6" y="3" width="4" height="18" rx="1"/>
           <rect x="14" y="3" width="4" height="18" rx="1"/>
         </svg>
 
       </button>
 
-      <button class="btn-skip" id="btnFwd" title="15 Sekunden vor">
-
-        <span class="skip-icon">
-          <span class="skip-arrow">↻</span>
-          <span class="skip-label">15s</span>
-        </span>
-
+      <button class="btn-skip" id="btnFwd">
+        <span class="skip-arrow">↻</span>
+        <span class="skip-label">15s</span>
       </button>
 
     </div>
 
   </section>
-
-  <!-- PDF -->
-
-  <section class="pdf-section card-width">
-
-    <a
-      href="Zeit_fuer_Dich_Achtsamkeitsuebung.pdf"
-      target="_blank"
-      class="pdf-btn"
-    >
-
-      <div class="pdf-icon">
-
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#b8924a"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <polyline points="14 2 14 8 20 8"/>
-
-        </svg>
-
-      </div>
-
-      <div>
-
-        <p class="pdf-title">
-          Übungsblatt herunterladen
-        </p>
-
-        <p class="pdf-sub">
-          Zeit für Dich – Achtsamkeitsübung als PDF
-        </p>
-
-      </div>
-
-      <span class="pdf-arrow">↓</span>
-
-    </a>
-
-  </section>
-
-  <!-- GUIDE -->
-
-  <section class="guide-section">
-
-    <h2 class="guide-title">
-      Eine kleine Pause zum Ankommen
-    </h2>
-
-    <p class="guide-subtitle">
-      Schön, dass du gerade hier bist
-    </p>
-
-    <div class="step">
-
-      <div class="step-num">1</div>
-
-      <div>
-
-        <p class="step-heading">
-          Atme ein.
-        </p>
-
-        <p class="step-text">
-          Atme einmal tief durch die Nase ein … und langsam wieder aus.<br>
-          <strong>Noch einmal.</strong><br>
-          Einatmen … und mit dem Ausatmen ein kleines Stück Anspannung loslassen.
-        </p>
-
-      </div>
-
-    </div>
-
-    <div class="step">
-
-      <div class="step-num">2</div>
-
-      <div>
-
-        <p class="step-heading">
-          Du darfst einfach da sein.
-        </p>
-
-        <p class="step-text">
-          Du musst gerade nichts leisten. Nichts erklären. Nichts perfekt machen.<br>
-          <strong>Du darfst einfach nur da sein.</strong>
-        </p>
-
-      </div>
-
-    </div>
-
-    <div class="step">
-
-      <div class="step-num">3</div>
-
-      <div>
-
-        <p class="step-heading">
-          Komme in deinen Körper.
-        </p>
-
-        <p class="step-text">
-          Spüre den Boden unter dir. Nimm wahr, wie dein Körper getragen wird.
-          Vielleicht lockerst du deine Schultern ein wenig.<br>
-          <strong>Mit jedem Atemzug darf etwas mehr Ruhe entstehen.</strong>
-        </p>
-
-      </div>
-
-    </div>
-
-    <div class="step">
-
-      <div class="step-num">4</div>
-
-      <div>
-
-        <p class="step-heading">
-          Erinnere dich daran.
-        </p>
-
-        <p class="step-text">
-          Du musst nicht immer stark sein. Du darfst müde sein.
-          Du darfst fühlen. Du darfst Pausen brauchen.<br>
-          <strong>
-            Manchmal beginnt genau dort wieder die Verbindung zu uns selbst.
-          </strong>
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- CLOSING -->
-
-  <section class="closing">
-
-    <p>
-      Schön, dass du dir diesen Moment<br>
-      für dich genommen hast.
-    </p>
-
-    <p>
-      Du bist wichtig. Genau so, wie du bist.
-    </p>
-
-    <div class="heart">♡</div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-    © KLARTeXt. · Alle Rechte vorbehalten
-  </footer>
-
-  <!-- SCRIPT -->
-
-  <script>
-
-    const audio        = document.getElementById('audio');
-    const btnPlay      = document.getElementById('btnPlay');
-
-    const iconPlay     = document.getElementById('iconPlay');
-    const iconPause    = document.getElementById('iconPause');
-
-    const progressFill = document.getElementById('progressFill');
-    const progressWrap = document.getElementById('progressWrap');
-
-    const timeCurrent  = document.getElementById('timeCurrent');
-    const timeDuration = document.getElementById('timeDuration');
-
-    function fmt(s) {
-
-      if (!isFinite(s)) return '–:––';
-
-      return `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2,'0')}`;
-    }
-
-    audio.addEventListener('loadedmetadata', () => {
-
-      timeDuration.textContent = fmt(audio.duration);
-    });
-
-    audio.addEventListener('timeupdate', () => {
-
-      const pct = audio.duration
-        ? (audio.currentTime / audio.duration) * 100
-        : 0;
-
-      progressFill.style.width = pct + '%';
-
-      timeCurrent.textContent = fmt(audio.currentTime);
-    });
-
-    audio.addEventListener('ended', () => {
-
-      iconPlay.style.display = '';
-      iconPause.style.display = 'none';
-    });
-
-    btnPlay.addEventListener('click', () => {
-
-      if (audio.paused) {
-
-        audio.play().catch(() => {});
-
-        iconPlay.style.display = 'none';
-        iconPause.style.display = '';
-
-      } else {
-
-        audio.pause();
-
-        iconPlay.style.display = '';
-        iconPause.style.display = 'none';
-      }
-    });
-
-    document.getElementById('btnBack').addEventListener('click', () => {
-
-      audio.currentTime = Math.max(0, audio.currentTime - 15);
-    });
-
-    document.getElementById('btnFwd').addEventListener('click', () => {
-
-      audio.currentTime = Math.min(
-        audio.duration || 0,
-        audio.currentTime + 15
-      );
-    });
-
-    progressWrap.addEventListener('click', (e) => {
-
-      if (!audio.duration) return;
-
-      const rect = progressWrap.getBoundingClientRect();
-
-      audio.currentTime =
-        ((e.clientX - rect.left) / rect.width) * audio.duration;
-    });
-
-  </script>
 
 </body>
 </html>
