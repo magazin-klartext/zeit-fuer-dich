@@ -3,33 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Zeit für Dich · KLARTeXt.</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Raleway:wght@300;400;500;600&family=Josefin+Sans:ital,wght@0,300;0,600;0,700;1,300;1,600;1,700&display=swap" rel="stylesheet" />
 
   <style>
 
     :root {
-      --blue:      #6a7fa3;
-      --blue-dark: #4e6080;
+      --blue:      #5f6f95;
+      --blue-dark: #43516d;
+      --blue-soft: #8e99bb;
 
-      --rose:      #e8c9bb;
-      --rose-bg:   #f7f0eb;
-      --rose-mid:  #ddb89f;
+      --rose:      #e5c8bc;
+      --rose-bg:   #f5eeea;
+      --rose-mid:  #d9b59d;
 
-      --mint:      #a8cece;
-
-      --lavender:  #7278b4;
+      --lavender:  #767cb7;
+      --lavender-light: #a8add9;
 
       --gold:      #b8924a;
 
-      --black:     #1a1a1a;
-      --gray:      #505763;
-      --lightgray: #d8d8d8;
+      --black:     #171717;
+      --gray:      #565c66;
+      --lightgray: #ddd7d2;
 
       --white:     #ffffff;
-
-      --bg:        #f2ede8;
+      --bg:        #f3ece7;
     }
 
     * {
@@ -45,23 +45,17 @@
     body {
 
       background:
-        radial-gradient(
-          circle at top right,
-          rgba(255,255,255,0.45),
-          transparent 28%
-        ),
-
-        linear-gradient(
-          to bottom,
-          #f4eee9,
-          #efe7e1
-        );
+        radial-gradient(circle at top right, rgba(255,255,255,0.55), transparent 28%),
+        linear-gradient(to bottom, #f6f1ed 0%, #eee5df 100%);
 
       font-family: 'Raleway', sans-serif;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--black);
 
       min-height: 100dvh;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     /* ───────────────── NAV ───────────────── */
@@ -75,21 +69,22 @@
       display: flex;
       align-items: center;
 
-      padding: 16px 28px;
+      padding: 18px 30px;
 
-      background: rgba(106,127,163,0.88);
+      background: rgba(95,111,149,0.82);
 
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
 
-      border-bottom: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
 
       box-shadow:
-        0 2px 12px rgba(0,0,0,0.10);
+        0 2px 18px rgba(0,0,0,0.10),
+        inset 0 -1px rgba(255,255,255,0.06);
     }
 
     .nav-logo-img {
-      height: 52px;
+      height: 54px;
       width: auto;
       display: block;
     }
@@ -103,13 +98,13 @@
 
       text-align: center;
 
-      padding: 74px 24px 64px;
+      padding: 78px 24px 78px;
 
       background:
         linear-gradient(
           180deg,
-          rgba(232,201,187,0.92),
-          rgba(245,237,232,0.96)
+          rgba(229,200,188,0.95),
+          rgba(246,241,237,0.96)
         );
     }
 
@@ -119,70 +114,88 @@
 
       position: absolute;
 
-      top: -60px;
-      right: -60px;
+      top: -80px;
+      right: -80px;
 
-      width: 220px;
-      height: 220px;
-
-      background: rgba(255,255,255,0.20);
+      width: 280px;
+      height: 280px;
 
       border-radius: 50%;
 
-      filter: blur(4px);
-
-      opacity: 0.7;
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,255,255,0.30),
+          transparent 70%
+        );
 
       pointer-events: none;
     }
 
     .hero-eyebrow {
 
-      font-size: 10px;
-      font-weight: 300;
+      font-size: 13px;
+      font-weight: 700;
 
-      letter-spacing: 0.42em;
-      text-transform: uppercase;
+      letter-spacing: 0.08em;
 
-      color: var(--lavender);
-
-      margin-bottom: 16px;
-    }
-
-    .hero h1 {
-
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 400;
-
-      font-size: clamp(3.2rem, 8vw, 4.3rem);
-
-      line-height: 1.08;
-
-      color: var(--lavender);
+      color: var(--black);
 
       margin-bottom: 18px;
     }
 
+    .hero h1 {
+
+      font-family: 'Josefin Sans', sans-serif;
+      font-style: italic;
+      font-weight: 700;
+
+      font-size: clamp(3rem, 9vw, 4.8rem);
+
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+
+      color: var(--blue-dark);
+
+      margin-bottom: 22px;
+
+      text-shadow:
+        0 1px 0 rgba(255,255,255,0.35);
+    }
+
     .hero-divider {
 
-      width: 46px;
+      width: 52px;
       height: 1px;
 
       background: var(--rose-mid);
 
-      margin: 0 auto 24px;
+      margin: 0 auto 28px;
     }
 
     .hero p {
 
-      max-width: 360px;
+      max-width: 390px;
+
       margin: 0 auto;
 
-      font-size: 0.98rem;
-      line-height: 1.95;
+      font-size: 1rem;
+      font-weight: 400;
 
-      color: var(--gray);
+      line-height: 2.05;
+
+      color: var(--black);
+
+      opacity: 0.72;
+    }
+
+    /* ───────────────── CARD WIDTH ───────────────── */
+
+    .card-width {
+      max-width: 520px;
+      width: calc(100% - 32px);
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* ───────────────── PLAYER ───────────────── */
@@ -192,52 +205,76 @@
       position: relative;
       overflow: hidden;
 
-      max-width: 500px;
+      max-width: 520px;
       width: calc(100% - 32px);
 
       margin: 0 auto;
 
-      transform: translateY(-34px);
+      transform: translateY(-42px);
 
-      padding: 34px 30px 30px;
+      padding: 38px 34px 34px;
 
-      border-radius: 28px;
-      
-      border-top: none;
-      background: rgba(255,255,255,0.72);
+      border-radius: 32px;
 
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0.82),
+          rgba(255,255,255,0.70)
+        );
 
-      border: 1px solid rgba(255,255,255,0.5);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+
+      border: 1px solid rgba(255,255,255,0.55);
 
       box-shadow:
-        0 10px 40px rgba(106,127,163,0.10),
-        0 2px 10px rgba(0,0,0,0.04);
+        0 20px 60px rgba(67,81,109,0.10),
+        0 4px 18px rgba(0,0,0,0.05),
+        inset 0 1px rgba(255,255,255,0.55);
     }
 
-  
+    .player-section::before {
+
+      content: '';
+
+      position: absolute;
+
+      top: -90px;
+      right: -90px;
+
+      width: 220px;
+      height: 220px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(168,173,217,0.22),
+          transparent 70%
+        );
+
+      pointer-events: none;
+    }
 
     .player-label {
 
       text-align: center;
 
       font-size: 10px;
-      font-weight: 300;
+      font-weight: 500;
 
-      letter-spacing: 0.30em;
-      text-transform: uppercase;
+      letter-spacing: 0.12em;
 
       color: var(--gray);
 
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     audio {
       display: none;
     }
-
-    /* ───────────────── PROGRESS ───────────────── */
 
     .progress-wrap {
 
@@ -245,7 +282,7 @@
 
       border-radius: 999px;
 
-      background: rgba(106,127,163,0.12);
+      background: rgba(95,111,149,0.10);
 
       overflow: hidden;
 
@@ -265,7 +302,7 @@
         linear-gradient(
           90deg,
           var(--blue),
-          var(--mint)
+          var(--lavender-light)
         );
 
       transition: width 0.2s linear;
@@ -276,11 +313,12 @@
       display: flex;
       justify-content: space-between;
 
-      margin-bottom: 26px;
+      margin-bottom: 28px;
 
       font-size: 11px;
+      font-weight: 500;
 
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
 
       color: var(--gray);
     }
@@ -302,6 +340,10 @@
       align-items: center;
       justify-content: center;
 
+      flex-direction: column;
+
+      gap: 3px;
+
       padding: 8px;
 
       border: none;
@@ -309,7 +351,7 @@
 
       cursor: pointer;
 
-      color: rgba(106,127,163,0.40);
+      color: rgba(95,111,149,0.45);
 
       transition:
         transform 0.2s ease,
@@ -318,18 +360,44 @@
 
     .btn-skip:hover {
 
-      color: var(--blue);
+      color: var(--blue-dark);
 
       transform: scale(1.08);
     }
 
+    .skip-icon {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 2px;
+
+      line-height: 1;
+    }
+
+    .skip-arrow {
+
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .skip-label {
+
+      font-size: 9px;
+      font-weight: 600;
+
+      letter-spacing: 0.03em;
+    }
+
+    /* ───────────────── PLAY BUTTON ───────────────── */
+
     .btn-play {
 
-      width: 74px;
-      height: 74px;
+      width: 78px;
+      height: 78px;
 
       border-radius: 50%;
-
       border: none;
 
       cursor: pointer;
@@ -341,113 +409,96 @@
       background:
         linear-gradient(
           145deg,
-          #7d82bf,
-          #5c6f99
+          #7c82c2,
+          #58688f
         );
 
       box-shadow:
-        0 10px 22px rgba(106,127,163,0.28),
-        inset 0 1px 1px rgba(255,255,255,0.25);
+        0 16px 34px rgba(95,111,149,0.30),
+        inset 0 1px 1px rgba(255,255,255,0.22);
 
       transition:
-        transform 0.22s ease,
-        box-shadow 0.22s ease,
-        opacity 0.22s ease;
+        transform 0.24s ease,
+        box-shadow 0.24s ease;
     }
 
     .btn-play:hover {
 
-      transform:
-        translateY(-2px)
-        scale(1.04);
+      transform: translateY(-2px) scale(1.04);
 
       box-shadow:
-        0 16px 32px rgba(106,127,163,0.32),
-        inset 0 1px 1px rgba(255,255,255,0.25);
+        0 20px 40px rgba(95,111,149,0.34),
+        inset 0 1px 1px rgba(255,255,255,0.22);
     }
-.btn-play svg {
-  color: #ffffff;
-  fill: #ffffff;
 
-  transform: scale(1.05);
+    .btn-play svg {
 
-  filter:
-    drop-shadow(0 1px 1px rgba(0,0,0,0.08));
-}l
- 
-  
+      color: #ffffff;
+      fill: #ffffff;
 
-/* ───────────────── CARD WIDTH ───────────────── */
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.08));
+    }
 
-.card-width {
+    /* ───────────────── PDF ───────────────── */
 
-  max-width: 500px;
-  width: calc(100% - 32px);
+    .pdf-section {
 
-  margin-left: auto;
-  margin-right: auto;
-}
+      margin-top: 6px;
 
-/* ───────────────── PDF ───────────────── */
+      display: flex;
+      justify-content: center;
+    }
 
-.pdf-section {
+    .pdf-btn {
 
-  margin-top: 4px;
+      display: flex;
+      align-items: center;
 
-  display: flex;
-  justify-content: center;
-}
+      gap: 18px;
 
-.pdf-btn {
+      width: 100%;
+      max-width: 520px;
 
-  display: flex;
-  align-items: center;
-  gap: 16px;
+      padding: 20px 24px;
 
-  width: 100%;
-  max-width: 500px;
+      text-decoration: none;
 
-  padding: 18px 22px;
+      color: var(--black);
 
-  text-decoration: none;
+      border-radius: 28px;
 
-  color: var(--black);
+      background:
+        rgba(255,255,255,0.72);
 
-  border-radius: 22px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
 
-  background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(255,255,255,0.48);
 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+      box-shadow:
+        0 12px 28px rgba(67,81,109,0.08);
 
-  border: 1px solid rgba(255,255,255,0.45);
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+    }
 
-  box-shadow:
-    0 8px 24px rgba(106,127,163,0.08);
+    .pdf-btn:hover {
 
-  transition:
-    transform 0.22s ease,
-    border-color 0.22s ease,
-    box-shadow 0.22s ease;
-}
+      transform: translateY(-2px);
 
-.pdf-btn:hover {
+      border-color: rgba(217,181,157,0.55);
 
-  transform: translateY(-2px);
-
-  border-color: rgba(221,184,159,0.6);
-
-  box-shadow:
-    0 14px 28px rgba(106,127,163,0.12);
-}
-
-
+      box-shadow:
+        0 18px 34px rgba(67,81,109,0.12);
+    }
 
     .pdf-icon {
 
-      width: 40px;
-      height: 40px;
-      min-width: 40px;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
 
       border-radius: 50%;
 
@@ -455,18 +506,19 @@
       align-items: center;
       justify-content: center;
 
-      background: rgba(232,201,187,0.28);
+      background:
+        rgba(229,200,188,0.32);
     }
 
     .pdf-icon svg {
-      width: 17px;
-      height: 17px;
+      width: 18px;
+      height: 18px;
     }
 
     .pdf-title {
 
-      font-size: 0.92rem;
-      font-weight: 400;
+      font-size: 0.95rem;
+      font-weight: 600;
 
       margin-bottom: 3px;
     }
@@ -474,7 +526,6 @@
     .pdf-sub {
 
       font-size: 0.78rem;
-      font-weight: 300;
 
       color: var(--gray);
 
@@ -485,37 +536,38 @@
 
       margin-left: auto;
 
-      color: rgba(106,127,163,0.45);
-
       font-size: 1.1rem;
+
+      color: rgba(95,111,149,0.48);
     }
 
     /* ───────────────── GUIDE ───────────────── */
 
     .guide-section {
 
-      max-width: 500px;
+      max-width: 520px;
       width: calc(100% - 32px);
 
-      margin-top: 46px;
-      margin: 34px auto 0;
+      margin: 38px auto 0;
 
-      padding-bottom: 48px;
+      padding-bottom: 54px;
     }
 
     .guide-title {
 
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-style: italic;
-      font-weight: 300;
+      font-weight: 700;
 
       text-align: center;
 
-      font-size: 2.2rem;
+      font-size: 1.9rem;
+
+      letter-spacing: 0.03em;
 
       color: var(--blue-dark);
 
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .guide-subtitle {
@@ -523,16 +575,15 @@
       text-align: center;
 
       font-size: 10px;
-      font-weight: 300;
+      font-weight: 500;
 
-      letter-spacing: 0.30em;
-      text-transform: uppercase;
+      letter-spacing: 0.12em;
 
       color: var(--gray);
 
       opacity: 0.7;
 
-      margin-bottom: 34px;
+      margin-bottom: 36px;
     }
 
     .step {
@@ -542,36 +593,20 @@
 
       gap: 18px;
 
-      padding: 26px 0;
+      padding: 28px 0;
 
-      border-bottom:
-        1px solid rgba(216,216,216,0.40);
-
-      animation: fadeUp 0.5s ease both;
+      border-bottom: 1px solid rgba(221,215,210,0.55);
     }
 
     .step:last-child {
       border-bottom: none;
     }
 
-    @keyframes fadeUp {
-
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     .step-num {
 
-      width: 34px;
-      height: 34px;
-      min-width: 34px;
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
 
       margin-top: 2px;
 
@@ -582,41 +617,44 @@
       justify-content: center;
 
       font-size: 11px;
-      font-weight: 400;
+      font-weight: 600;
 
       color: var(--blue-dark);
 
-      background: rgba(232,201,187,0.28);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(232,201,187,0.52),
+          rgba(221,184,159,0.42)
+        );
 
-      backdrop-filter: blur(8px);
+      box-shadow:
+        inset 0 1px rgba(255,255,255,0.55);
     }
 
     .step-heading {
 
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 400;
+      font-size: 0.97rem;
+      font-weight: 600;
 
-      font-size: 1.18rem;
+      letter-spacing: 0.02em;
 
-      margin-bottom: 7px;
+      margin-bottom: 8px;
 
-      color: var(--blue-dark);
+      color: var(--black);
     }
 
     .step-text {
 
-      font-size: 0.90rem;
+      font-size: 0.92rem;
 
-      line-height: 1.95;
+      line-height: 2;
 
-      color: var(--gray);
+      color: #383838;
     }
 
     .step-text strong {
-
-      font-weight: 500;
-
+      font-weight: 600;
       color: var(--black);
     }
 
@@ -624,51 +662,54 @@
 
     .closing {
 
-      max-width: 500px;
+      max-width: 520px;
       width: calc(100% - 32px);
 
-      margin-top: 12px;
-      margin: 0 auto 54px;
+      margin: 8px auto 56px;
 
-      padding: 34px 30px;
+      padding: 42px 34px;
 
       text-align: center;
 
-      border-radius: 28px;
+      border-radius: 32px;
 
       background:
         linear-gradient(
           180deg,
-          rgba(232,201,187,0.70),
-          rgba(255,255,255,0.55)
+          rgba(232,201,187,0.82),
+          rgba(255,255,255,0.62)
         );
 
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
+
+      border: 1px solid rgba(255,255,255,0.45);
 
       box-shadow:
-        0 8px 26px rgba(106,127,163,0.08);
+        0 18px 40px rgba(95,111,149,0.10);
     }
 
     .closing p {
 
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Josefin Sans', sans-serif;
       font-style: italic;
-      font-weight: 300;
+      font-weight: 600;
 
-      font-size: 1.15rem;
+      font-size: 1.08rem;
 
       line-height: 1.9;
 
-      color: var(--gray);
+      color: var(--black);
 
-      margin-bottom: 8px;
+      opacity: 0.76;
+
+      margin-bottom: 10px;
     }
 
     .heart {
 
-      margin-top: 6px;
+      margin-top: 10px;
 
-      font-size: 1.25rem;
+      font-size: 1.3rem;
 
       color: var(--rose-mid);
     }
@@ -677,19 +718,18 @@
 
     footer {
 
-      padding: 26px 24px 40px;
+      padding: 28px 24px 42px;
 
       text-align: center;
 
-      background: transparent;
-
       font-size: 10px;
-      font-weight: 300;
+      font-weight: 500;
 
       letter-spacing: 0.22em;
+
       text-transform: uppercase;
 
-      color: rgba(78,96,128,0.55);
+      color: rgba(67,81,109,0.55);
     }
 
     /* ───────────────── MOBILE ───────────────── */
@@ -697,20 +737,20 @@
     @media (max-width: 480px) {
 
       .hero {
-        padding-top: 62px;
+        padding-top: 64px;
       }
 
       .player-section {
-        padding: 30px 24px 26px;
-      }
-
-      .guide-section {
-        margin-top: 26px;
+        padding: 32px 24px 28px;
       }
 
       .btn-play {
-        width: 68px;
-        height: 68px;
+        width: 72px;
+        height: 72px;
+      }
+
+      .guide-section {
+        margin-top: 30px;
       }
     }
 
@@ -718,8 +758,6 @@
 </head>
 
 <body>
-
-  <!-- NAV -->
 
   <nav>
     <img
@@ -734,7 +772,10 @@
   <section class="hero">
 
     <p class="hero-eyebrow">
-      KLARTeXt. · Das Magazin mit Haltung
+      KLARTeXt.
+      <span style="font-weight:300;opacity:0.7">
+        Das Magazin mit Haltung
+      </span>
     </p>
 
     <h1>Zeit für Dich</h1>
@@ -773,102 +814,34 @@
 
     <div class="controls">
 
-      <!-- BACK -->
+      <button class="btn-skip" id="btnBack" title="15 Sekunden zurück">
 
-      <button
-        class="btn-skip"
-        id="btnBack"
-        title="15 Sekunden zurück">
-
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round">
-
-          <polyline points="1 4 1 10 7 10"/>
-          <path d="M3.51 15a9 9 0 1 0 .49-3.96"/>
-
-          <text
-            x="7.5"
-            y="17"
-            font-size="5.5"
-            font-family="sans-serif"
-            fill="currentColor"
-            stroke="none">
-
-            15
-          </text>
-
-        </svg>
+        <span class="skip-icon">
+          <span class="skip-arrow">↺</span>
+          <span class="skip-label">15s</span>
+        </span>
 
       </button>
-
-      <!-- PLAY -->
 
       <button class="btn-play" id="btnPlay">
 
-        <svg
-          id="iconPlay"
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="currentColor">
-
+        <svg id="iconPlay" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
           <polygon points="5,3 19,12 5,21"/>
         </svg>
 
-        <svg
-          id="iconPause"
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          style="display:none">
-
+        <svg id="iconPause" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="display:none">
           <rect x="6" y="3" width="4" height="18" rx="1"/>
           <rect x="14" y="3" width="4" height="18" rx="1"/>
-
         </svg>
 
       </button>
 
-      <!-- FORWARD -->
+      <button class="btn-skip" id="btnFwd" title="15 Sekunden vor">
 
-      <button
-        class="btn-skip"
-        id="btnFwd"
-        title="15 Sekunden vor">
-
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round">
-
-          <polyline points="23 4 23 10 17 10"/>
-          <path d="M20.49 15a9 9 0 1 1-.49-3.96"/>
-
-          <text
-            x="7.5"
-            y="17"
-            font-size="5.5"
-            font-family="sans-serif"
-            fill="currentColor"
-            stroke="none">
-
-            15
-          </text>
-
-        </svg>
+        <span class="skip-icon">
+          <span class="skip-arrow">↻</span>
+          <span class="skip-label">15s</span>
+        </span>
 
       </button>
 
@@ -883,7 +856,8 @@
     <a
       href="Zeit_fuer_Dich_Achtsamkeitsuebung.pdf"
       target="_blank"
-      class="pdf-btn">
+      class="pdf-btn"
+    >
 
       <div class="pdf-icon">
 
@@ -893,7 +867,8 @@
           stroke="#b8924a"
           stroke-width="1.5"
           stroke-linecap="round"
-          stroke-linejoin="round">
+          stroke-linejoin="round"
+        >
 
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
           <polyline points="14 2 14 8 20 8"/>
@@ -932,162 +907,85 @@
       Schön, dass du gerade hier bist
     </p>
 
-    <!-- STEP -->
-
     <div class="step">
+
       <div class="step-num">1</div>
 
       <div>
-        <p class="step-heading">Atme ein.</p>
+
+        <p class="step-heading">
+          Atme ein.
+        </p>
 
         <p class="step-text">
-          Atme einmal tief durch die Nase ein …
-          und langsam wieder aus.<br>
-
+          Atme einmal tief durch die Nase ein … und langsam wieder aus.<br>
           <strong>Noch einmal.</strong><br>
-
-          Einatmen … und mit dem Ausatmen
-          ein kleines Stück Anspannung loslassen.
+          Einatmen … und mit dem Ausatmen ein kleines Stück Anspannung loslassen.
         </p>
+
       </div>
+
     </div>
 
     <div class="step">
+
       <div class="step-num">2</div>
 
       <div>
+
         <p class="step-heading">
           Du darfst einfach da sein.
         </p>
 
         <p class="step-text">
-          Du musst gerade nichts leisten.
-          Nichts erklären.
-          Nichts perfekt machen.<br>
-
-          <strong>
-            Du darfst einfach nur da sein.
-          </strong>
+          Du musst gerade nichts leisten. Nichts erklären. Nichts perfekt machen.<br>
+          <strong>Du darfst einfach nur da sein.</strong>
         </p>
+
       </div>
+
     </div>
 
     <div class="step">
+
       <div class="step-num">3</div>
 
       <div>
+
         <p class="step-heading">
           Komme in deinen Körper.
         </p>
 
         <p class="step-text">
-          Spüre den Boden unter dir.
-          Nimm wahr, wie dein Körper getragen wird.
-          Vielleicht lockerst du deine Schultern
-          ein wenig.<br>
-
-          <strong>
-            Mit jedem Atemzug darf etwas mehr Ruhe entstehen.
-          </strong>
+          Spüre den Boden unter dir. Nimm wahr, wie dein Körper getragen wird.
+          Vielleicht lockerst du deine Schultern ein wenig.<br>
+          <strong>Mit jedem Atemzug darf etwas mehr Ruhe entstehen.</strong>
         </p>
+
       </div>
+
     </div>
 
     <div class="step">
+
       <div class="step-num">4</div>
 
       <div>
+
         <p class="step-heading">
           Erinnere dich daran.
         </p>
 
         <p class="step-text">
-          Du musst nicht immer stark sein.
-          Du darfst müde sein.
-          Du darfst fühlen.
-          Du darfst Pausen brauchen.<br>
-
+          Du musst nicht immer stark sein. Du darfst müde sein.
+          Du darfst fühlen. Du darfst Pausen brauchen.<br>
           <strong>
             Manchmal beginnt genau dort wieder die Verbindung zu uns selbst.
           </strong>
         </p>
+
       </div>
-    </div>
 
-    <div class="step">
-      <div class="step-num">5</div>
-
-      <div>
-        <p class="step-heading">
-          Gedanken dürfen sein.
-        </p>
-
-        <p class="step-text">
-          Gedanken dürfen kommen.
-          Und auch wieder weiterziehen.<br>
-
-          <strong>
-            Du musst nichts festhalten.
-          </strong>
-        </p>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">6</div>
-
-      <div>
-        <p class="step-heading">
-          Wie geht es mir wirklich?
-        </p>
-
-        <p class="step-text">
-          Vielleicht fragst du dich jetzt ganz leise:
-          <strong>
-            Wie geht es mir eigentlich gerade wirklich?
-          </strong><br>
-
-          Nicht wie es „sein sollte".
-          Nicht was erwartet wird.
-          Sondern ehrlich.
-        </p>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">7</div>
-
-      <div>
-        <p class="step-heading">
-          Atme noch einmal.
-        </p>
-
-        <p class="step-text">
-          Atme noch einmal tief ein …
-          und langsam wieder aus.
-        </p>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-num">8</div>
-
-      <div>
-        <p class="step-heading">
-          Komme langsam zurück.
-        </p>
-
-        <p class="step-text">
-          Nimm dieses Gefühl noch einen kleinen Moment mit.<br>
-
-          <strong>
-            Ruhe. Atmung. Ankommen.
-          </strong><br>
-
-          Und wenn du soweit bist,
-          öffne langsam wieder die Augen.
-        </p>
-      </div>
     </div>
 
   </section>
@@ -1102,8 +1000,7 @@
     </p>
 
     <p>
-      Du bist wichtig.
-      Genau so, wie du bist.
+      Du bist wichtig. Genau so, wie du bist.
     </p>
 
     <div class="heart">♡</div>
@@ -1121,7 +1018,6 @@
   <script>
 
     const audio        = document.getElementById('audio');
-
     const btnPlay      = document.getElementById('btnPlay');
 
     const iconPlay     = document.getElementById('iconPlay');
@@ -1180,19 +1076,18 @@
       }
     });
 
-    document.getElementById('btnBack')
-      .addEventListener('click', () => {
+    document.getElementById('btnBack').addEventListener('click', () => {
 
-        audio.currentTime =
-          Math.max(0, audio.currentTime - 15);
-      });
+      audio.currentTime = Math.max(0, audio.currentTime - 15);
+    });
 
-    document.getElementById('btnFwd')
-      .addEventListener('click', () => {
+    document.getElementById('btnFwd').addEventListener('click', () => {
 
-        audio.currentTime =
-          Math.min(audio.duration || 0, audio.currentTime + 15);
-      });
+      audio.currentTime = Math.min(
+        audio.duration || 0,
+        audio.currentTime + 15
+      );
+    });
 
     progressWrap.addEventListener('click', (e) => {
 
@@ -1201,8 +1096,7 @@
       const rect = progressWrap.getBoundingClientRect();
 
       audio.currentTime =
-        ((e.clientX - rect.left) / rect.width)
-        * audio.duration;
+        ((e.clientX - rect.left) / rect.width) * audio.duration;
     });
 
   </script>
