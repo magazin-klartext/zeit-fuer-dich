@@ -6,54 +6,6 @@
   <title>KLARTeXt. Magazin - Zeit für dich</title>
 
   <style>
-    /* ── LOKALE FONTS ─────────────────────────────────────────
-       Lege folgende Dateien im Ordner "fonts/" ab:
-       • Oswald-Regular.woff2   (weight 400)
-       • Oswald-Medium.woff2    (weight 500)
-       • Oswald-Bold.woff2      (weight 700)
-       • Inter-Light.woff2      (weight 300)
-       • Inter-Regular.woff2    (weight 400)
-       • Inter-Medium.woff2     (weight 500)
-       • Inter-SemiBold.woff2   (weight 600)
-       Download: https://gwfh.mranftl.com/fonts (Google Fonts Helper)
-       ──────────────────────────────────────────────────────── */
-
-    @font-face {
-      font-family: 'Oswald';
-      src: url('fonts/Oswald-Regular.woff2') format('woff2');
-      font-weight: 400; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Oswald';
-      src: url('fonts/Oswald-Medium.woff2') format('woff2');
-      font-weight: 500; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Oswald';
-      src: url('fonts/Oswald-Bold.woff2') format('woff2');
-      font-weight: 700; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Inter';
-      src: url('fonts/Inter-Light.woff2') format('woff2');
-      font-weight: 300; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Inter';
-      src: url('fonts/Inter-Regular.woff2') format('woff2');
-      font-weight: 400; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Inter';
-      src: url('fonts/Inter-Medium.woff2') format('woff2');
-      font-weight: 500; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Inter';
-      src: url('fonts/Inter-SemiBold.woff2') format('woff2');
-      font-weight: 600; font-style: normal; font-display: swap;
-    }
-
     :root {
       --bg: #f6f2eb;
       --paper: #fffefb;
@@ -68,7 +20,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
@@ -78,7 +30,6 @@
       padding-bottom: env(safe-area-inset-bottom);
     }
 
-    /* Papier-Textur: inline SVG, keine externen Requests */
     body::before {
       content: "";
       position: fixed;
@@ -171,9 +122,10 @@
     h1 {
       position: relative;
       z-index: 2;
-      font-family: 'Oswald', 'Arial Narrow', sans-serif;
+      font-family: 'Arial Narrow', Arial, sans-serif;
       text-transform: uppercase;
       font-size: clamp(2rem, 6vw, 3.1rem);
+      font-weight: 700;
       line-height: 1.05;
       margin-bottom: 22px;
     }
@@ -388,11 +340,11 @@
     </div>
 
     <div class="footer">
-      <div class="footer-main">KLARTeXt.ECHT.MUTIG.KLAR.</div>
+      <div class="footer-main">KLARTeXt. ECHT. MUTIG. KLAR.</div>
       <div class="footer-copy">© 2026 KLARTeXt. Das Magazin mit Haltung</div>
       <div class="footer-links">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutzerklärung</a>
+        <a href="https://www.magazin-klartext.de/impressum/" target="_blank" rel="noopener">Impressum</a>
+        <a href="https://www.magazin-klartext.de/datenschutzerklaerung/" target="_blank" rel="noopener">Datenschutzerklärung</a>
       </div>
     </div>
   </div>
