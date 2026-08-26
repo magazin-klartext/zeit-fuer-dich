@@ -1,0 +1,9 @@
+{
+  "edition": "2026-q4",
+  "slug": "/e/2",
+  "assets": [
+    {"exercise": "nikolaus", "audio": "nikolaus-audio.mp3", "pdf": "nikolaus.pdf"},
+    {"exercise": "heiligabend", "audio": "heiligabend-audio.mp3", "pdf": "heiligabend.pdf"},
+    {"exercise": "achtsamkeit", "audio": "achtsamkeit-audio.mp3", "pdf": "achtsamkeit.pdf"}
+  ]
+}
