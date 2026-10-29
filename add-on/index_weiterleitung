@@ -2,13 +2,14 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://magazin-klartext-extras.vercel.app/">
+  <meta http-equiv="refresh" content="0; url=https://magazin-klartext-extras.vercel.app/ehrlichkeit">
+  <link rel="canonical" href="https://magazin-klartext-extras.vercel.app/ehrlichkeit">
   <title>KLARTeXt. Extras</title>
   <script>
-    window.location.replace("https://magazin-klartext-extras.vercel.app/");
+    window.location.replace("https://magazin-klartext-extras.vercel.app/ehrlichkeit");
   </script>
 </head>
 <body>
-  <p>Weiterleitung zu KLARTeXt. Extras …</p>
+  <p>Weiterleitung zu <a href="https://magazin-klartext-extras.vercel.app/ehrlichkeit">KLARTeXt. Extras – Ausgabe 01</a> …</p>
 </body>
 </html>
